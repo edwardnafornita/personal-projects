@@ -1,0 +1,97 @@
+\contentsline {section}{\numberline {1}Introduction to Probability and Statistics}{6}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Definitions:}{6}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Describing Data with Numerical Measures}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Measures of Center}{6}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Methods of Measures of Center}{6}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Measures of Variability}{7}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Methods of Measures of Variability}{7}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Standard Deviation}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Measures of Center and Spread: Tchebysheff's Theorem}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Measures of Center and Spread: The Empirical Rule}{8}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Approximating Sample Standard Deviation}{9}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Measures of Relative Standing}{9}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Z-Scores}{9}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}P-th Percentile}{10}{subsubsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.8}Quartiles and the IQR}{10}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}Calculating Sample Quartiles}{10}{subsubsection.2.8.1}%
+\contentsline {section}{\numberline {3}Probability and Probability Distributions}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definitions:}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Probability}{11}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Probability of an Event}{11}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Counting Rules}{11}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}The mn Rule}{11}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Permutations}{12}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Combinations}{12}{subsubsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.3}Event Relations}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Calculating Probabilities for Unions and Complements}{12}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Conditional Probabilities}{13}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Defining Independence}{13}{subsubsection.3.5.1}%
+\contentsline {section}{\numberline {4}Random Variable and Probability Distributions}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Random Variables}{14}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Probability Distributions for Discrete Random Variables}{14}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Probability Distributions}{14}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Mean and Standard Deviation}{14}{subsubsection.4.2.1}%
+\contentsline {section}{\numberline {5}Special Discrete Distributions}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Binomial Random Variable}{14}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Binomial Experiment}{15}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Binomial Probability Distribution}{15}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Mean and Standard Deviation}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Cumulative Probability Tables}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Poisson Random Variable}{16}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Poisson Probability Distribution}{16}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Hypergeometric Probability Distribution}{16}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Mean and Variance}{16}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}Poisson Approximation to the Binomial}{16}{subsubsection.5.4.4}%
+\contentsline {section}{\numberline {6}Normal Probability Distribution}{17}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Continuous Random Variables}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Properties of Continuous Probability Distribution}{17}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Normal Distribution}{17}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Standard Normal Distribution}{18}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Solve Problems Using Statistical Table 3}{18}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Finding Probabilities for the General Normal Random Variable}{18}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}Normal Approximation to the Binomial}{19}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Approximating the Binomial}{19}{subsubsection.6.5.1}%
+\contentsline {section}{\numberline {7}Sampling Distributions}{19}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Sampling}{19}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Sampling Distributions for Statistics}{20}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Importance of Sampling Distributions for Statistics}{20}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Definition of Large}{21}{subsubsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.2}Sampling Distribution of the Sample Mean}{21}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Finding Probabilities for the Sample Mean}{21}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Example 2}{22}{subsubsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.4}Sampling Distribution of the Sample Proportion}{22}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}Finding Probabilities for the Sample Proportion}{22}{subsubsection.7.4.1}%
+\contentsline {section}{\numberline {8}Large-Sample Estimation}{23}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Interval Estimation}{24}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Estimating Means and Proportions}{24}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Confidence Intervals for Means and Proportions}{25}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Estimating the Difference between Two Means}{26}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Sampling Distribution of the Sample Means}{26}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {8.5.1}Estimating Population Means}{27}{subsubsection.8.5.1}%
+\contentsline {subsubsection}{\numberline {8.5.2}Estimating the Difference between Two Proportions}{28}{subsubsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.6}Sampling Distribution of Sample Proportions}{28}{subsection.8.6}%
+\contentsline {subsubsection}{\numberline {8.6.1}Estimating Population Proportions}{28}{subsubsection.8.6.1}%
+\contentsline {subsubsection}{\numberline {8.6.2}Choosing the Sample Size}{29}{subsubsection.8.6.2}%
+\contentsline {section}{\numberline {9}Large-Sample Tests of Hypotheses}{30}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Hypothesis, Null and Alternative Hypothesis}{30}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}One and Two Sided Alternatives}{30}{subsubsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.2}Testing a Null Hypothesis}{31}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Critical Value Method}{31}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}P-Value Method: Likely or Unlikely?}{32}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Statistical Significance of P-Values}{33}{subsubsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.3}Confidence Interval Method}{33}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Statistical Significance of the Confidence Interval Method}{34}{subsubsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.4}Testing the Difference between Two Means}{34}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Testing a Binomial Proportion}{35}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Testing the Difference between Two Proportions}{35}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Steps in Hypothesis Testing}{35}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Inference from Small Samples}{35}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Student's 't' Distribution}{36}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Properties of Student's 't' Distribution}{36}{subsubsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.2}Small Sample Inference for a Population Mean}{36}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Testing the Difference between Two Means}{38}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}The Paired-Difference Test}{40}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Inference Concerning a Population Variance}{42}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Inference Concerning Two Population Variances}{43}{subsection.10.6}%
+\contentsline {subsubsection}{\numberline {10.6.1}Note for the F-Test}{44}{subsubsection.10.6.1}%
+\contentsline {subsubsection}{\numberline {10.6.2}Confidence Interval for Sigma / Sigma}{45}{subsubsection.10.6.2}%

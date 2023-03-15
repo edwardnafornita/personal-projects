@@ -1,0 +1,235 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mdframed}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+
+\newcommand{\bBox}{\hbox{\vrule width1.3ex height1.3ex}}
+\def\proof{\par\noindent{\bf Proof.\ } \ignorespaces}
+\def\endproof{{\ \hspace*{\fill}\bBox \parfillskip 0pt}\smallskip\noindent}
+
+\title{COMP-2310 Formula Sheet \\ Midterm Test 2}
+\author{University of Windsor \\ Edward Nafornita}
+
+\begin{document}
+\maketitle{}
+\newpage
+\section*{Chapter 3}
+    \begin{mdframed}[leftmargin=0.01cm, rightmargin=0.01cm]
+        \begin{definition*}[Principle of Extension]
+            Two sets A and B are \textbf{equal}, denoted by $A = B$, iff $(\forall x)(x \in A \Leftrightarrow x \in B)$
+        \end{definition*}
+        \begin{lemma*}[3.2.1]
+            Let A, B, C be sets.
+            \begin{itemize}
+                \item[(i)] $A = A$
+                \item[(ii)] If $(A = B)$, then $B = A$
+                \item[(iii)] If $(A = B)$ and $(B = C)$, then $A = C$
+            \end{itemize}
+        \end{lemma*}
+        \begin{lemma*}[3.2.2]
+            $A \neq B$ iff $(\exists x)(x \in A \wedge x \notin B) \vee (\exists x)(x \notin A \wedge x \in B)$
+        \end{lemma*}
+        \begin{corollary*}[3.2.2.1]
+            Let A and B be sets. \\
+            $(\exists x)(x \in A \wedge x \notin B) \Rightarrow A \neq B$
+        \end{corollary*}
+        \begin{definition*}[Subset]
+            Let A, B be two sets. A is a \textbf{subset} of B or B \textbf{includes} A, denoted by $A \subseteq B$, iff $(\forall x)(x \in A \Rightarrow x \in B)$. \\
+            A is a \textbf{proper subset} of B, denoted by $A \subset B$, iff $A \subseteq B$ and $A \neq B$.
+        \end{definition*}
+        \begin{lemma*}[3.2.3]
+            Let A, B, C be sets.
+            \begin{itemize}
+                \item[(i)] $A \subseteq A$
+                \item[(ii)] If $A \subseteq B$ and $B \subseteq A$, then $A = B$
+                \item[(iii)] If $A \subseteq B$ and $B \subseteq C$, then $A \subseteq C$  
+            \end{itemize}
+        \end{lemma*}
+        \begin{lemma*}[3.2.4]
+            Let A, B be sets. If $A = B$, then $(A \subseteq B) \wedge (B \subseteq A)$
+        \end{lemma*}
+        \begin{lemma*}[3.2.5]
+            $A \nsubseteq B \Leftrightarrow (\exists x)(x \in A \wedge x \notin B)$
+        \end{lemma*}
+        \begin{lemma*}[3.2.6]
+            If $A \subset B$, then $(\exists x)(x \in B \wedge x \notin A)$
+        \end{lemma*}
+        \begin{definition*}[Principle of Specification]
+            For every set A and every formula $S(x)$, there exists a set B whose elements are exactly those elements of A for which $S(x)$ is true. The set B is denoted by:
+            $\{ x | x \in A \wedge S(x) \}$ or $\{x \in A | S(x) \}$
+        \end{definition*}
+        \begin{definition*}[Power Set]
+            Let A be a set. The \textbf{power set} of A, denoted by $\mathcal{P}(A)$, is the set $\{ X | X \subseteq A \}$
+        \end{definition*}
+    \end{mdframed}
+\newpage
+\section*{Chapter 4}
+    \begin{mdframed}[leftmargin=0.25cm, rightmargin=0.25cm]
+        \begin{definition*}[Union]
+            Let A, B be two sets. The \textbf{union} of A and B is the set $A \cup B = \{ x | x \in A \vee x \in B \}$
+        \end{definition*}
+        \begin{theorem*}[4.1.1]
+            Let A, B be sets.
+            \begin{itemize}
+                \item[(i)] $A \cup \emptyset = A$
+                \item[(ii)] $A \cup A = A$
+                \item[(iii)] $A \cup B = B \cup A$
+                \item[(iv)] $(A \cup B) \cup C = A \cup (B \cup C)$
+                \item[(v)] $A \subseteq B$ iff $A \cup B = B$  
+            \end{itemize}
+        \end{theorem*}
+        \begin{definition*}[Intersection]
+            Let A, B be two sets. The \textbf{intersection} of A and B is the set $A \cap B = \{ x | x \in A \wedge x \in B \}$
+        \end{definition*}
+        \begin{theorem*}[4.2.2]
+            Let A, B be sets.
+            \begin{itemize}
+                \item[(i)] $A \cap \emptyset = \emptyset$
+                \item[(ii)] $A \cap A = A$
+                \item[(iii)] $A \cap B = B \cap A$
+                \item[(iv)] $(A \cap B) \cap C = A \cap (B \cap C)$
+                \item[(v)] $A \subseteq B$ iff $A \cap B = A$  
+            \end{itemize}
+        \end{theorem*}
+        \begin{corollary*}[4.2.2.1]
+            Let A, B be any two sets. Then, $A \cap B \subseteq A \subseteq A \cup B$
+        \end{corollary*}
+        \begin{theorem*}[4.2.3]
+            Let A, B, C be sets.
+            \begin{itemize}
+                \item[(i)] $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+                \item[(ii)] $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+            \end{itemize}
+        \end{theorem*}
+        \begin{definition*}[Disjoint]
+            Two sets A and B are \textbf{disjoint} if $A \cap B = \emptyset$
+        \end{definition*}
+        \begin{definition*}[Relative Complement]
+            Let A, B be two sets. The \textbf{relative complement} of B in A is the set $A - B = \{x | x \in A \wedge x \notin B \}$
+        \end{definition*}
+    \end{mdframed}
+    \newpage
+    \begin{mdframed}[leftmargin=0.01cm, rightmargin=0.01cm]
+        \begin{theorem*}[4.3.4]
+            Let A, B, C be sets.
+            \begin{itemize}
+                \item[(i)] $A \subseteq B$ iff $A - B = \emptyset$
+                \item[(ii)] $A - (A - B) = A \cap B$
+                \item[(iii)] $A \cap (B - C) = (A \cap B) - (A \cap C)$
+            \end{itemize}
+        \end{theorem*}
+        \begin{definition*}[Absolute Complement]
+            The \textbf{(relative) Universal set}, denoted by $\mathbf{U}$, is a set which contains every object (thereby includes every set) in our discussion. Let A be any set
+            such that $A \subseteq \mathbf{U}$. The \textbf{absolute complement} of A is the set $\overline{A} = \mathbf{U} - A$
+        \end{definition*}[4.3.5]
+        \begin{lemma*}
+            Let $A \subseteq \mathbf{U}$. Then, $x \in \overline{A} \Leftrightarrow x \notin A$
+        \end{lemma*}
+        \begin{theorem*}[4.3.6 DeMorgan's Theorem]
+            Let A, B be any two subsets of $\mathbf{U}$
+            \begin{itemize}
+                \item[(i)] $\overline{A \cup B} = \overline{A} \cap \overline{B}$
+                \item[(ii)] $\overline{A \cap B} = \overline{A} \cup \overline{B}$
+            \end{itemize}
+        \end{theorem*}
+        \begin{theorem*}[4.3.7]
+            Let A, B be any two subsets of $\mathbf{U}$.
+            \begin{itemize}
+                \item[(i)] $\overline{\overline{A}} = A$
+                \item[(ii)] $\overline{\emptyset} = \mathbf{U}$ and $\overline{\mathbf{U}} = \emptyset$
+                \item[(iii)] $A \cap \overline{A} = \emptyset$ and $A \cup \overline{A} = \mathbf{U}$
+                \item[(iv)] $A \subseteq B$ iff $\overline{B} \subseteq \overline{A}$
+                \item[(v)] $A - B = A\cap \overline{B}$
+            \end{itemize}
+        \end{theorem*}
+        \begin{definition*}[Ordered Pair]
+            The \textbf{ordered pair} of a and b is the set \\$(a, b) = \{\{a\},\{a,b\}\} = \{x | x = \{a\} \vee x = \{a, b\}\}$
+        \end{definition*}
+        \begin{lemma*}[4.4.8]
+            $(a, b) = (x, y)$ implies that $a = x$ and $b = y$
+        \end{lemma*}
+        \begin{lemma*}[4.4.9]
+            $a = c \wedge b = d \Rightarrow (a,b) = (c,d)$
+        \end{lemma*}
+        \begin{definition*}[Cartesian Product]
+            Let A, B be two sets. The \textbf{Cartesian Product} of A and B is the set $A \times B = \{x | (\exists a)(\exists b)(a \in A \wedge b \in B \wedge x = (a,b))\} = \{(a,b) | a \in A \wedge b \in B\}$
+        \end{definition*}
+    \end{mdframed}
+    \newpage
+    \begin{mdframed}[leftmargin=0.01cm, rightmargin=0.01cm]
+        \begin{lemma*}[4.5.10]
+            Let A, B, X and Y be sets.
+            \begin{itemize}
+                \item[(i)] $(A \cup B) \times X = (A \times X) \cup (B \times X)$
+                \item[(ii)] $(A \cap B) \times X = (A \times X) \cap (B \times X)$
+                \item[(iii)] $(A - B) \times X = (A \times X) - (B \times X)$
+                \item[(iv)] $(A \cap B) \times (X \cap Y) = (A \times X) \cap (B \times Y)$
+                \item[(v)] $(A = \emptyset \vee B = \emptyset) \Leftrightarrow A \times B = \emptyset$
+            \end{itemize}
+        \end{lemma*}
+        \begin{definition*}[Union of a Collection of Sets]
+            Let $\mathcal{C}$ be a collection of sets. The \textbf{union of $\mathcal{C}$} is the set: $$\bigcup_{X \in \mathcal{C}} X = \{x | (\exists X)(X \in \mathcal{C} \wedge x \in X)\} = \{x | x \in X \hspace{5px} \textnormal{for some} \hspace{5px} X \in \mathcal{C}\}$$
+        \end{definition*}
+        \begin{definition*}[Intersection of a Collection of Sets]
+            Let $\mathcal{C}$ be a collection of sets such that $\mathcal{C} \neq \emptyset$. The \textbf{intersection of $\mathcal{C}$} is the set: $$\bigcap_{X \in \mathcal{C}} X = \{x | (\forall X)(X \in \mathcal{C} \Rightarrow x \in X)\} = \{x | x \in X \hspace{5px} \textnormal{for all} \hspace{5px} X \in \mathcal{C}\}$$
+        \end{definition*}
+        \begin{lemma*}{A:}
+            $(X \cap Y) \cup X = X$
+        \end{lemma*}
+    \end{mdframed}
+\newpage
+\section*{Chapter 5}
+    \begin{mdframed}[leftmargin=0.01cm, rightmargin=0.01cm]
+        \begin{definition*}[Relation]
+            A \textbf{relation} is a set of ordered pairs. Specifically, a set R is a relation if $(\forall x)(x \in R \Rightarrow (\exists a)(\exists b)x = (a,b))$
+        \end{definition*}
+        \begin{definition*}[Domain \& Range of Relations]
+            Let R be a relation. The \textbf{domain} of R is the set $Dom(R) = \{x | (\exists y)(x,y) \in R\}$ and the \textbf{range} of R is the set \\$Ran(R) = \{y | (\exists x)(x,y) \in R\}$
+        \end{definition*}
+        \begin{definition*}[Cartesian Product of Relations]
+            Let $R \subseteq X \times Y$, we say that R is a \textbf{relation from X to Y}. In particular, when $X = Y$, (ie. $R \subseteq X \times X$), we say that R is a \textbf{relation in X}.
+        \end{definition*}
+        \begin{lemma*}[5.1.1]
+            Let R be a relation from X to Y. Then $Dom(R) \subseteq X$ and $Ran(R) \subseteq Y$
+        \end{lemma*}
+        \begin{definition*}[Properties of Relation]
+            Let R be a relation in a set X
+            \begin{itemize}
+                \item[R] is \textbf{reflexive} if $(\forall x \in X)(x,x) \in R$;
+                \item[R] is \textbf{irreflexive} if $(\forall x \in X)(x,x) \notin R$;
+                \item[R] is \textbf{symmetric} if $(x,y) \in R \Rightarrow (y,x) \in R$;
+                \item[R] is \textbf{antisymmetric} if $(x,y) \in R \wedge (y,x) \in R \Rightarrow x = y$;
+                \item[R] is \textbf{asymmetric} if $\forall x,y \in X, ~((x,y) \in R \wedge (y,x)\in R)$, or equivalently, \\ $\forall x,y \in X, (x,y) \in R \Rightarrow (y,x) \notin R$;
+                \item[R] is \textbf{transitive} if $(x,y) \in R \wedge (y,z) \in R \Rightarrow (x,z) \in R$.
+            \end{itemize}
+        \end{definition*}
+        \begin{lemma*}[5.2.1]
+            Let R be a relation in X. If $(\exists x \in X)(x,x)\in R$, then R is not asymmetric.
+        \end{lemma*}
+        \begin{definition*}[Equivalence Relation]
+            A relation R in a set X is an \textbf{equivalence relation} if R is reflexive, symmetric and transitive.
+        \end{definition*}
+        \begin{definition*}[Equivalence Class]
+            Let R be an equivalence relation in a set X. For each $x \in X$, the \textbf{equivalence class of x w.r.t. R} is the set \\$\left[x\right]/R = \{y | y \in X \wedge (x,y) \in R\} = \{y \in X | (x,y) \in R\}$ or equivalently,
+            \\$\left[x\right]/R = \{y | (x,y) \in R\}$
+        \end{definition*}
+        \begin{definition*}[Collection of Equivalence Classes]
+            Let R be an equivalence relation in a set X. \textbf{The collection of equivalence classes w.r.t. R} is the set: $\left[X\right]/R = \{S | (\exists x)(x \in X \wedge S = \left[x\right]/R)\} = \{\left[x\right]/R | x \in X\}$
+        \end{definition*}
+    \end{mdframed}
+    \newpage
+    \begin{mdframed}[leftmargin=0.01cm, rightmargin=0.01cm]
+        \begin{definition*}[Partition of a Collection of Sets]
+            
+        \end{definition*}
+        \textbf{continue on page 122 definition at the very top!}
+    \end{mdframed}
+\end{document}

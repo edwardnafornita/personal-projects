@@ -1,0 +1,1309 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+\newcommand{\lecture} {
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+        \vbox{
+            \vspace{2mm}
+            \hbox to 6.28in {{\bf STAT 2910: Statistics for the Sciences \hfill InterSummer 2022}}
+            \vspace{4mm}
+            \hbox to 6.28in {{\Large \hfill Lecture Notes  \hfill}}
+            \vspace{2mm}
+            \hbox to 6.28in {\textbf{Name:} Edward Nafornita \hfill 
+            \textbf{Professor:} Sudhir Paul
+            }
+            %% \hbox to 6.28in { {\it Lecturer: #3 \hfill Scribes: #4} }
+            \vspace{2mm}
+        }
+    }
+   \end{center}
+   \markboth{STAT 2910: Lecture Notes}{STAT 2910: Lecture Notes}
+   \vspace*{4mm}
+}
+
+\begin{document}
+    \lecture
+    % \vspace{4cm}
+    % \begin{figure}[h!]
+    %     \includegraphics[width=3.00in]{stats-logo.png}
+    %     \centering
+    % \end{figure}
+    % \newpage
+    \newpage
+    \tableofcontents
+    \vspace{12cm}
+    \line(1,0){\linewidth}
+    \newpage
+
+    \section{Introduction to Probability and Statistics}
+        \subsection{Definitions:}
+            \begin{itemize}
+                \item Variable: A characteristic that changes or varies over time and/or for different individuals or objects under consideration.
+                \item Experimental Unit: is an individual or object on which a variable is measured.
+                \item Measurement: results when a variable is actually measured on an experimental unit.
+                \item Data Value: is a measurement on an experimental unit.
+                \item Population: a set of measurements or data values obtained from all conceivable units of interest to the investigator.
+                \item Sample: a subset of measurements selected from the population of interest.
+                \item Qualitative Variables: measure a quality or characteristic on each experimental unit.
+                \item Quantitative Variables: measure a numerical quantity on each experimental unit. \\ \underline{Discrete}: if it can assume only a finite or countable number of values. \\ \underline{Continuous}: if it can assume the infinitely many values corresponding to the points on a line interval.
+            \end{itemize}
+    
+    \section{Describing Data with Numerical Measures}
+        \textbf{Definitions:}
+            \begin{itemize}
+                \item Parameter: a numerical descriptive measure calculated for a population.
+                \item Statistic: a numerical descriptive measure calculated for a sample.
+            \end{itemize}
+        
+        \subsection{Measures of Center}
+            A measure along the horizontal axis of the data distribution that locates the center of the distribution.
+            \subsubsection{Methods of Measures of Center}
+                \begin{description}
+                    \item[1] Mean: the sum of the measurements divided by the total number of measurements. \smallskip 
+                        \begin{equation}
+                            \bar{x} = \frac{\sum x_i}{n}
+                        \end{equation}
+                        Where $n$ = number of measurements and $\sum x_i$ = sum of all the measurements. \\ \underline{Exception}: if calculating the \textbf{population mean}, we denote the variable as $\mu$.
+                    \item[2] Median: the middle measurement when the measurements are ranked from smallest to largest. Use the following formula to calculate the 'Position of the Median': \smallskip
+                        \begin{equation}
+                            \frac{1}{2}(n + 1)
+                        \end{equation}
+                        \underline{Note}: Measurements (or data) must be ordered to utilise this formula.
+                    \item[3] Mode: is the measurement which occurs the most frequent.
+                    \item[4] Extreme Values: the mean is more easily affected by extremely large or small values than the median. Whereas, the median is often used as a measure of center when the distribution is skewed. \\ \underline{Note}: \\ Symmetric: Mean = Median \\ Skewed Right: Mean $>$ Median \\ Skewed Left: Mean $<$ Median 
+                \end{description}
+        
+        \subsection{Measures of Variability}
+            A measure along the horizontal axis of the data distribution that describes the spread of the distribution from the center.
+            \subsubsection{Methods of Measures of Variability}
+                \begin{description}
+                    \item[1] Range ($R$): (in a set of $n$ measurements) is the difference between the largest and smallest measurements.
+                    \item[2] Variance ($\sigma$ or $s$): is a measure of variability that uses all the measurements. It measures the average deviation of the measurements about their mean.
+                        \begin{itemize}
+                            \item Use \textbf{Formula (3)} to calculate the \underline{variance of a population} of $N$ measurements with respect to their mean $\mu$. \smallskip
+                                \begin{equation}
+                                    \sigma^2 = \frac{\sum (x_i - \mu)^2}{N}
+                                \end{equation}
+                            \item Use \textbf{Formula (4)} to calculate the \underline{variance of a sample} of n measurements with respect to their mean, divided by $(n - 1)$. \smallskip
+                                \begin{equation}
+                                    s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
+                                \end{equation}
+                                Alternatively we can substitute the formula for Mean into the variance formula to do a one-step computation, \smallskip
+                                \begin{equation}
+                                    s^2 = \frac{\sum (x_i)^2 - \frac{(\sum x_i)^2}{n}}{n - 1}
+                                \end{equation} 
+                        \end{itemize}
+                        \textbf{Note}: Calculating the variance requires the deviations to be squared, thus meaning the scale of our measurements are skewed.
+                \end{description}
+        
+        \subsection{Standard Deviation}
+            The calculation for returning variance back to original units of measure is known as \textbf{standard deviation}.
+            \begin{itemize}
+                \item Population Standard Deviation: $\sigma = \sqrt{\sigma^2}$
+                \item Sample Standard Deviation: $s = \sqrt{s}$
+            \end{itemize}
+            \subsubsection*{General Notes}
+                \begin{itemize}
+                    \item[1] The value of $s$ is \textbf{always positive}.
+                    \item[2] The larger the value of $s^2$ or $s$, the larger the variability of the data set.
+                    \item[3] Dividing by $(n - 1)$: The sample standard deviation $s$ is often used to estimate the population standard deviation $\sigma$. Dividing by $(n - 1)$ gies us a better estimate of $\sigma$. 
+                \end{itemize}
+        
+        \subsection{Measures of Center and Spread: Tchebysheff's Theorem}
+            Given a number $k$ greater than or equal to $1$ and a set of $n$ measurements, at least $1 - (\frac{1}{k^2})$ of the measurements will lie within $k$ standard deviations of the mean. \\ \underline{Note}: Can be used for either samples ($\bar{s}$ and $s$) or for a population ($\mu$ and $\sigma$).
+            \begin{itemize}
+                \item If $k = 2$, at least $1 - \frac{1}{2^2} = \frac{3}{4}$ of the measurements are within 2 standard deviations of the mean.
+                \item If $k = 3$, at least $1 - \frac{1}{3^2} = \frac{8}{9}$ of the measurements are within 3 standard deviations of the mean.
+            \end{itemize}
+        
+        \subsection{Measures of Center and Spread: The Empirical Rule}
+            Given a distribution of measurements that is approximately mound-shaped:
+            \begin{itemize}
+                \item[1] The interval $\mu \pm \sigma$ contains approximately 68\% of the measurements.
+                \item[2] The interval $\mu \pm 2\sigma$ contains approximately 95\% of the measurements.
+                \item[3] The interval $\mu \pm 3\sigma$ contains approximately 99.7\% of the measurements.
+            \end{itemize}
+        
+        \subsection{Approximating Sample Standard Deviation}
+            \begin{itemize}
+                \item[1] From Tchebysheff's Theorem and the Empirical Rule, we know: $$R \approx (4|6) s$$ 
+                \item[2] To approximate the standard deviation of a set of measurements, we can use: $$s \approx \frac{R}{4}$$ or for a large data set, $$s \approx \frac{R}{6}$$ 
+            \end{itemize}
+        
+        \subsection{Measures of Relative Standing}
+            The measure of the relative standing of a particular measurement with respect to other measurements in a data set is computed through the amount standard deviations away the measurement is from the mean. This is calculated by the \textbf{z-score}.
+            \begin{equation}
+                \textnormal{z-score} = \frac{x - \bar{x}}{s}
+            \end{equation}
+            \subsubsection{Z-Scores}
+                \begin{itemize}
+                    \item From Tchebysheff's Theorem and the Empirical Rule
+                        \begin{itemize}
+                            \item At least $\frac{3}{4}$ and more likely 95\% of measurements lie within 2 standard deviations of the mean.
+                            \item At least $\frac{8}{9}$ and more likely 99.7\% of measurements lie within 3 standard deviations of the mean. 
+                        \end{itemize}
+                    \item Z-Scores between $-2$ and $2$ are not unusual, however, z-scores should not exceed 3 in absolute value as this would indicate a possible \underline{outlier}.
+                \end{itemize}
+            \subsubsection{P-th Percentile}
+                \textbf{Definition:} How many measurements lie below the measurement of interest. \\
+                Example: \\ Given that 90\% of all men (16 and older) earn more than \$319 per week. \$319 is in the $10^{th}$ percentile according to the formula: $$(100 - p)\%$$ 
+        
+        \subsection{Quartiles and the IQR}
+            \begin{itemize}
+                \item[1] The \textbf{lower quartile ($Q_1$)} is the value of $x$ which is larger than 25\% and less than 75\% of the ordered measurements.
+                \item[2] The \textbf{upper quartile ($Q_3$)} is the value of $x$ which is larger than 75\% and less than 25\% of the ordered measurements.
+                \item[3] The range of the 'middle 50\%' of the measurements is the \textbf{interquartile range}, \smallskip 
+                    \begin{equation}
+                        IQR = Q_3 - Q_1
+                    \end{equation}  
+            \end{itemize}
+            \subsubsection{Calculating Sample Quartiles}
+                \begin{itemize}
+                    \item The lower and upper quartiles ($Q_1$ and $Q_3$), can be calculated as follows:
+                        \begin{itemize}
+                            \item Position of $Q_1$: $\frac{1}{4}(n + 1)$
+                            \item Position of $Q_3$: $\frac{3}{4}(n + 1)$
+                        \end{itemize}
+                        \underline{Note}: The formulas are only valid if the measurements have already been ordered. If the positions are not integers, find the quartiles through interpolation.
+                \end{itemize}
+
+    \section{Probability and Probability Distributions}
+        \subsection{Definitions:}
+            \begin{itemize}
+                \item Experiment: is the process by which an observation (or measurement) is obtained.
+                \item Simple Event: is the outcome that is observed on a single repetition of the experiment. Denoted as $E_n$ where $n$ is the index number of the event.
+                \item Sample Space: is the set of all simple events of an experiment, denoted as $S$.
+                \item Event: is a collection of one or more simple events.
+                \item Probability of an Event ($A$): is found by adding the probabilities of all the simple events contained in $A$.
+            \end{itemize}
+        \subsection{Probability}
+            \textbf{Definition:} The probability of an event, $A$, measures "how often" we think '$A$' will occur. This is denote by \textbf{P(A)}.
+            \begin{itemize}
+                \item Suppose that an experiment is performed $n$ times. The relative frequency for an event 'A' is:
+                    \begin{equation}
+                        \frac{\textnormal{Number of times A occurs}}{n} = \frac{f}{n}
+                    \end{equation}
+                    If $n$ gets infinitely large,
+                    \begin{equation}
+                        P(A) = \lim_{n \to \infty}\frac{f}{n}
+                    \end{equation}
+            \end{itemize}
+            \subsubsection{Probability of an Event}
+                \begin{itemize}
+                    \item $P(A)$ must be between 0 and 1.
+                        \begin{itemize}
+                            \item If event $A$ can never occur, $P(A) = 0$.
+                            \item If event $A$ always occurs when the experiment is performed, $P(A) = 1$.
+                        \end{itemize}
+                    \item If $E_1, E_2,\dots, E_k$ are $k$ possible simple events in $S$, then;
+                        \begin{itemize}
+                            \item $0 \leq P(E_i) \leq 1$
+                            \item $\sum_{i = 1}^k P(E_i) = 1$
+                        \end{itemize}
+                        The sum of the probabilities for all simple events in $S$ equals 1.
+                \end{itemize}
+            \subsubsection{Counting Rules}
+                \begin{itemize}
+                    \item If the simple events in an experiment are \textbf{equally likely}, you can calculate;
+                        \begin{equation}
+                            P(A) = \frac{n_A}{N} = \frac{\textnormal{number of simple events in}\hspace{1mm}A}{\textnormal{total number of simple events}}
+                        \end{equation}
+                    \item You can use \textbf{counting rules} to find $n_A$ and $N$.
+                \end{itemize}
+            \subsubsection{The mn Rule}
+                \begin{itemize}
+                    \item If an experiment is performed in two stages, with $m$ ways to accomplish the first stage and $n$ ways to accomplish the second stage, then there are $mn$ ways to accomplish the experiment.
+                    \item This rule is easily extended to $k$ stages, with the number of ways equal to $n_1n_2n_3\dots n_k$.
+                \end{itemize}
+            \subsubsection{Permutations}
+                \begin{itemize}
+                    \item The number of ways you can arrange $n$ distinct objects, taking them $r$ at a time is calculate by the following formula;
+                        \begin{equation}
+                            P^n_r = \frac{n!}{(n - r)!}
+                        \end{equation}
+                        Where $n! = n(n - 1)(n - 2)\dots (2)(1)$ and $0! \equiv 1$
+                \end{itemize}
+            \subsubsection{Combinations}
+                \begin{itemize}
+                    \item The number of distinct combinations of $n$ distinct objects that can be formed, taking them $r$ at a time is calculated by the following formula;
+                        \begin{equation}
+                            C^n_r = \frac{n!}{r!(n - r)!}
+                        \end{equation}
+                \end{itemize}
+        \subsection{Event Relations}
+            \begin{itemize}
+                \item The \textbf{union} ($\cup$) of two events, $A$ and $B$, is the event that $A$ or $B$ or both occur when the experiment is performed. Denoted as: $A\cup B$.
+                    \begin{itemize}
+                        \item \underline{Mutually Exclusive Events}: Two events are mutually exclusive if, when one event occurs, the other cannot, and vice versa.
+                    \end{itemize}
+                \item The \textbf{intersection} of two events, $A$ and $B$, is the event that both $A$ and $B$ occur when the experiment is performed. Denoted as: $A\cap B$. 
+                \item If two events $A$ and $B$ are mutually exclusive, then $P(A\cap B) = 0$
+                \item The \textbf{complement} of an event $A$ consists of all outcomes of the experiment that do not result in event $A$. Denoted as: $A^C$.
+            \end{itemize}
+        \subsection{Calculating Probabilities for Unions and Complements}
+            \begin{itemize}
+                \item \underline{Additive Rule for Unions}: For any two events, $A$ and $B$, the probability of their union, $P(A\cup B)$, is: \smallskip
+                    \begin{equation}
+                        P(A\cup B) = P(A) + P(B) - P(A\cap B)
+                    \end{equation}
+                    \begin{itemize}
+                        \item \underline{Exception}: When $A$ and $B$ are mutually exclusive, $P(A\cap B) = 0$ and \\$P(A\cup B) = P(A) + P(B)$.
+                    \end{itemize}
+                \item \underline{Calculating Probabilities for Complements}: We know that for any event $A$: $$P(A\cap A^C) = 0$$ Since either $A$ or $A^C$ must occur, $$P(A\cup A^C) = 1$$ so that $$P(A\cup A^C) = P(A) + P(A^C) = 1$$ then; \smallskip
+                    \begin{equation}
+                        P(A^C) = 1 - P(A)
+                    \end{equation}
+                \item \underline{Calculating Probabilities for Intersections}: Calculating $P(A\cap B)$ depends on the idea of \textbf{independent and dependent events}.
+                    \begin{itemize}
+                        \item \underline{Define}: Two events, $A$ and $B$, are said to be independent if and only if the probability that event $A$ occurs does not change, depending on whether or not event $B$ has occurred.
+                    \end{itemize}
+            \end{itemize}
+        \subsection{Conditional Probabilities}
+            The probability that $A$ occurs, given that event $B$ has occurred is called the \textbf{conditional probability} of $A$ given $B$ and is defined as the following equation: \smallskip
+            \begin{equation}
+                P(A|B) = \frac{P(A\cap B)}{P(B)} \hspace{1mm} \textnormal{if} \hspace{1mm} P(B) \neq 0
+            \end{equation}
+            \subsubsection{Defining Independence}
+                \begin{itemize}
+                    \item We can redefine independence in terms of conditional probabilities:
+                        \begin{itemize}
+                            \item Two events $A$ and $B$ are \underline{independent} if and only if: $$P(A|B) = P(A) \hspace{3mm} \textnormal{or} \hspace{3mm} P(B|A) = P(B)$$ Otherwise, they are \underline{dependent}. 
+                        \end{itemize}
+                    \item Once the decision whether or not two events are independent, the following rule can be applied to calculate their intersection:
+                        \begin{itemize}
+                            \item \underline{Multiplicative Rule for Intersections}: For any two events, $A$ and $B$, the probability that both $A$ and $B$ occur is:
+                                \begin{equation}
+                                    P(A\cap B) = P(A)P(B\hspace{1mm}\textnormal{given that}\hspace{1mm}A\hspace{1mm}\textnormal{occurred}) = P(A)P(B|A)
+                                \end{equation}
+                            \item \underline{Exception}: If the events $A$ and $B$ are independent, then the probability that both $A$ and $B$ occur is: $P(A\cap B) = P(A)P(B)$.
+                        \end{itemize}
+                \end{itemize}
+
+    \section{Random Variable and Probability Distributions}
+        \subsection{Random Variables}
+            \begin{itemize}
+                \item[1] A quantitative variable $x$ is a random variable if the value that it assumes, corresponding to the outcome of an experiment is a chance or random event.
+                \item[2] Random variables can be \underline{discrete} or \underline{continuous}.
+            \end{itemize}
+            \subsubsection{Probability Distributions for Discrete Random Variables}
+                \begin{itemize}
+                    \item The proabilty distribution for a discrete random variable $x$, resembles the relative frequency distributions we constructed in Chapter 1. It is a graph, table or formula that gives the possible values of $x$ and the probability $p(x)$ associated with each value. $$ \textnormal{We must have}$$ $$0 \leq p(x) \leq 1 \hspace{1mm} \textnormal{and} \hspace{1mm} \sum p(x) = 1$$
+                \end{itemize}
+        \subsection{Probability Distributions}
+            \begin{itemize}
+                \item Probability distributions can be used to describe the population, just as we described samples in Chapter 1.
+                \begin{itemize}
+                    \item Shape: Symmetric, skewed, mound-shaped\dots
+                    \item Outliers: unusual or unlikely measurements.
+                    \item Center and Spread: mean and standard deviation. A population mean is called $\mu$ and a population standard deviation is called $\sigma$. 
+                \end{itemize}
+            \end{itemize}
+            \subsubsection{Mean and Standard Deviation}
+                \begin{itemize}
+                    \item Let $x$ be a discrete random variable with probability distribution $p(x)$. Then the mean, variance, and standard deviation of $x$ are given as; \smallskip
+                    \begin{itemize}
+                        \item Mean: $\mu = \sum xp(x)$
+                        \item Variance: $\sigma ^2 = \sum (x - \mu)^2 p(x)$
+                        \item Standard Deviation: $\sigma = \sqrt{\sigma ^2}$
+                    \end{itemize}
+                \end{itemize}
+
+    \section{Special Discrete Distributions}
+        \subsection{Binomial Random Variable}
+            \begin{itemize}
+                \item The coin-tossing experiment is a simple example of a binomial random variable.
+            \end{itemize}
+            \subsubsection{Binomial Experiment}
+                \begin{itemize}
+                    \item[1] The experiment consists of $n$ identical trials.
+                    \item[2] Each trial results in one of two outcomes, success (S) or failure (F).
+                    \item[3] The probability of success on a single trail is $p$ and remains constant from trial to trial. The probability of failure is $q = 1 - p$.
+                    \item[4] The trials are independent.
+                    \item[5] We are interested in $x$, the number of successes in $n$ trials.
+                \end{itemize}
+            \subsubsection{Binomial Probability Distribution}
+                \begin{itemize}
+                    \item For a binomial experiment with $n$ trials and probability $p$ of success on a given trial, the probability of $k$ successes in $n$ trials is: \smallskip
+                        \begin{equation}
+                            P(x=k) = C^n_kp^kq^{n-k} = \frac{n!}{k!(n-k)!}p^kq^{n-k} \hspace{1mm} \textnormal{for} \hspace{1mm} k=0,1,2,\dots,n.
+                        \end{equation}
+                        \textbf{Recall:} $C^n_k = \frac{n!}{k!(n-k)!}$ with $n! = n(n-1)(n-2)\dots(2)(1) \hspace{1mm} \textnormal{and} \hspace{1mm} 0!\equiv 1.$
+                \end{itemize}
+        \subsection{Mean and Standard Deviation}
+            \begin{itemize}
+                \item For a binomial experiment with $n$ trials and probability $p$ of success on a given trial, the measures of center and spread are: \smallskip
+                    \begin{itemize}
+                        \item Mean: $\mu = np$
+                        \item Variance: $\sigma ^2 = npq$
+                        \item Standard Deviation: $\sigma = \sqrt{npq}$
+                    \end{itemize}
+            \end{itemize}
+        \subsection{Cumulative Probability Tables}
+            You can use the cumulative probability tables to find probabilities for selected binomial distributions.
+            \begin{itemize}
+                \item Find the table for the correct value of $n$.
+                \item Find the column for the correct value of $p$.
+                \item The row marked '$k$' gives the cumulative probability, \smallskip \\ $P(x \leq k) = P(x=0) + \dots + P(x = k)$
+            \end{itemize}
+        \subsection{Poisson Random Variable}
+            The Poisson random variable $x$ is a model for data that represent the number of occurrences of a specified event in a given unit of time or space.
+            \subsubsection{Poisson Probability Distribution}
+                $x$ is the number of events that occur in a period of time or space during which an average of $\mu$ such events can be expected to occur. The probability of $k$ occurrences of this event is: \smallskip
+                \begin{equation}
+                    P(x=k) = \frac{\mu^ke^{-\mu}}{k!}
+                \end{equation}
+                For values of $k = 0,1,2,\dots$ The mean and standard deviation of the Poisson random variable are:
+                \begin{itemize}
+                    \item Mean: $\mu$
+                    \item Standard Deviation: $\sigma = \sqrt{\mu}$
+                \end{itemize}
+                \underline{Note}: You can use the cumulative probability tables to find probabilities for selected Poisson distributions.
+            \subsubsection{Hypergeometric Probability Distribution}
+                The probability of exactly $k$ successes in $n$ trials is: \smallskip
+                \begin{equation}
+                    P(x=k) = \frac{C^M_kC^{N-M}_{n-k}}{C^N_n}
+                \end{equation}
+            \subsubsection{Mean and Variance}
+                The mean and variance of the hypergeometric random variable $x$ resemble the mean and variance of the binomial random variable: \smallskip
+                \begin{itemize}
+                    \item Mean: $\mu = n\bigg(\frac{M}{N}\bigg)$
+                    \item Variance: $\sigma ^2 = n\bigg(\frac{M}{N}\bigg)\bigg(\frac{N-M}{N}\bigg)\bigg(\frac{N-n}{N-1}\bigg)$
+                \end{itemize}
+            \subsubsection{Poisson Approximation to the Binomial}
+                The poisson distribution provides a simple, easy to compute, and accurate approximation to the binomial probabilities, when $n$ is large, $p$ is small, and $np<7$
+    %/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    %                                    BELOW IS THE CODE FOR THE SECOND PART OF THE COMPILED STATS LECTURE NOTES                                       %
+    %/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    \section{Normal Probability Distribution}
+        \subsection{Continuous Random Variables}
+            \begin{itemize}
+            \item Continuous Random Variables: can assume the infinitely many values corresponding to points on a line interval.
+                \begin{itemize}
+                    \item Examples: Heights, weights, length of life of a particular product, experimental laboratory error.
+                \end{itemize}
+            \item A smooth curve describes the probability distribution of a continuous random variable.
+            \item The depth or density of the probability, which varies with $x$, may be descirbed by a mathematical formula $f(x)$, called the \textbf{probability distribution} or \textbf{probability density function} for the random variable $x$.
+            \end{itemize}
+        \subsection{Properties of Continuous Probability Distribution}
+            \begin{description}
+                \item[1] The area  under the curve is equal to 1.
+                \item[2] $P(a \leq x \leq b)$ = \textbf{area under the curve} between $a$ and $b$.
+                \item[3] There is no probability attached to any single value of $x$. That is, $P(x = a) = 0$.
+            \end{description}
+        \subsection*{Continuous Proabability Distributions}
+            \begin{itemize}
+                \item There are many different types of continuous random variables.
+                \item We try to pick a model that
+                    \begin{itemize}
+                        \item Fits the data well
+                        \item Allows us to make the best possible inferences using the data.
+                    \end{itemize}
+                \item One important continuous random variable is the \textbf{normal random variable}.
+            \end{itemize}
+        \subsection{Normal Distribution}
+            \begin{itemize}
+                \item The formula that generates the normal probability distribution is:
+                \begin{equation}
+                    f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+                \end{equation}
+                    \begin{itemize}
+                        \item For $-\infty < x < \infty$
+                        \item $\mu$ and $\sigma$ are the population mean and standard deviation.
+                    \end{itemize}
+                \item The shape and location of the normal curve changes as the mean and standard deviation change.
+            \end{itemize}
+        \subsection{Standard Normal Distribution}
+            \begin{itemize}
+                \item To find $P(a < x < b)$, we need to find the area under the appropriate normal curve.
+                \item To simplify the tabulation of these areas, we \textbf{standardize} each value of $x$ by expressing it as a $z$-score, the number of standard deviations $\sigma$ it lies from the mean $\mu$.
+                    \begin{equation}
+                        z = \frac{x-\mu}{\sigma}
+                    \end{equation}
+            \end{itemize}
+            \subsection*{Properties of the Standard Normal Distribution}
+            \begin{description}
+                \item[1] Mean $= 0$; Standard Deviation $= 1$
+                \item[2] When $x = \mu$, $z = 0$
+                \item[3] Symmetric about $z = 0$
+                \item[4] Values of $z$ to the left of center are neagtive
+                \item[5] Values of $z$ to the right of center are positive
+                \item[6] Total area under the curve is 1.
+            \end{description}
+            \subsubsection{Solve Problems Using Statistical Table 3}
+                \begin{description}
+                    \item[1] To find an area to the left of a $z$-value, find the area directly from the table.
+                    \item[2] To find an area to the right of a $z$-value, find the area in Table 3 and subtract from 1.
+                    \item[3] To find the area between two values of $z$, find the two areas in Table 3, and subtract one from the other.
+                \end{description}
+                \textbf{Recall:} Empirical Rule states that "approximately 95\% of the measurements lie within 2 standard deviations of the mean."
+            \subsubsection{Finding Probabilities for the General Normal Random Variable}
+                \begin{description}
+                    \item[1] To find an area for a normal random variable $x$ with mean $\mu$ and standard deviation $\sigma$, standardize or rescale the interval in terms of $z$-values.
+                    \item[2] Find the appropriate area using Table 3.
+                \end{description}
+        \subsection{Normal Approximation to the Binomial}
+            \begin{itemize}
+                \item We can calculate binomial probabilities using:
+                \begin{itemize}
+                    \item The binomial formula
+                    \item The cumulative binomial tables
+                \end{itemize}
+                \item When $n$ is large, and $p$ is not too close to zero or one, areas under the normal curve with mean $np$ and variance $npq$ can be used to approximate binomial probabilities.
+            \end{itemize}
+            \subsubsection{Approximating the Binomial}
+                \begin{itemize}
+                    \item Make sure to include the entire rectangle for the values of $x$ in the interval of interest. This is called the \textbf{continuity correction}.
+                    \item Standardize the values of $x$ using:
+                    \begin{equation}
+                        z = \frac{x - np}{\sqrt{npq}}
+                    \end{equation}
+                    \item Make sure that \underline{$np$ and $nq$ are both greater than 5} to avoid inaccurate approximations.
+                \end{itemize}
+
+    \section{Sampling Distributions} 
+        \begin{itemize}
+            \item Parameters are numerical descriptive measures for populations. The values of the parameters are generally unknown.
+            \begin{itemize}
+                \item Examples 1: Suppose height of the students of U. of W. is normally distributed with $\mu$ and $\sigma$.
+                \begin{itemize}
+                    \item The quantities $\mu$ and $\sigma$ are parameters. These are fixed but unknown.
+                \end{itemize}
+                \item Example 2: Suppose a proportion $p$ of people in Windsor have heart disease. Suppose you take a sample of $n$ people from Windsor. Let $x = $ number of people in the sample who have heart disease. Then, $x$ has a binomial distribution with index $n$ probability $p$.
+                \begin{itemize}
+                    \item The quantity $p$ is the parameter which is fixed but unknown.
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+        \subsection{Sampling}
+            Since it is time consuming and expensive to take all values of the population to obtain values of the population quantities such as $\mu$, $\sigma$ and $p$ we can take a sample to estimate these quantities.
+            \begin{itemize}
+                \item Example: Suppose that the mean height of the students of U. of W. is \\$\mu = 5.6$ft. Now suppose that you take 10 students from a sample of 25 \\students and obtained their values is as follows; \\$\bar{x}: 5.2, 5.7, 5.4, 5.8, 5.6, 5.9, 5.1, 5.6, 5.55, 5.67$.
+                \item This example shows that the sample mean is not fixed. It is known as a random variable and it depends on which 25 students are in the sample.
+                \item Since $\bar{x}$ is a random variable, it has a probability distribution.
+                \item The quantities $\bar{x}$ and $s$ calculated from the sample to estimate the population quantities $\mu$ and $\sigma$ are called statistics. Thus the sample mean $\bar{x}$ is a statistic obtained from the sample to estimate the population mean $\mu$
+            \end{itemize}
+            \underline{Sample Variance:} $s^2$ is a statistic obtained from the sample to estimate the population variance $\sigma^2$.
+            \\ \underline{Sample Proportion:} $\hat{p}$ is a statistic obtained from the sample to estimate the population proportion $p$.
+            \\ Statistics vary from samle to sample and hence are random variables. The probability distributions for statistics are called \textbf{sampling distributions}. In repeated sampling, they tell us what values of the statistics can occur and how often each value occurs.
+            \subsubsection{Sampling Distributions for Statistics} 
+                \begin{description}
+                    \item[1] Approximated with simulation techniques
+                    \item[2] Derived using mathematical theorems
+                    \begin{itemize}
+                        \item Example: The Central Limit Theorem is one such example.
+                    \end{itemize}
+                \end{description}
+                \begin{mdframed}[leftmargin=10pt, rightmargin=10pt]
+                    \textbf{Central Limit Theorem:} If random samples of $n$ observations are drawn from a non-normal population with finite $\mu$ and standard deviation $\sigma$, then, when $n$ is large, the sampling distribution of the sample mean $\bar{x}$ is approximately normally distributed, with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt{n}}$. The approximation becomes more accurate as $n$ becomes large.
+                \end{mdframed}
+            \subsubsection{Importance of Sampling Distributions for Statistics}
+                \begin{itemize}
+                    \item The \textbf{Central Limit Theorem} also implies that the sum of $n$ measurements is approximately normal with mean $n\mu$ and standard deviation $\frac{\sigma}{\sqrt{n}}$
+                    \item Many statistics that are used for statistical inference are \textbf{sums} or \textbf{averages} of sample measurements.
+                    \item When $n$ is large, these statistics will have approximately \textbf{normal} distributions.
+                \end{itemize}
+            \subsubsection{Definition of Large}
+            \begin{itemize}
+                \item If the sample is from a \textbf{normal population}, then the sampling distribution of $\bar{x}$ will also be normal, no matter the sample size.
+                \item When the sample population is approximately \textbf{symmetric}, the distribution becomes approximately normal for relatively small values of $n$.
+                \item When the sample population is \textbf{skewed}, the sample size must be \textbf{at least 30} before the sampling distribution of $\bar{x}$ becomes approximately normal.
+            \end{itemize}
+        \subsection{Sampling Distribution of the Sample Mean}
+            \begin{mdframed}[leftmargin=10pt, rightmargin=10pt]
+            \begin{itemize}
+                \item A random sample of size $n$ is selected from a population with mean $\mu$ and standard deviation $\sigma$.
+                \item The sampling distribution of the sample mean $\bar{x}$ will have mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt{n}}$.
+                \item If the original population is \textbf{normal}, the sampling distribution will be normal for any sample size.
+                \item If the original population is \textbf{non-normal}, the sampling distribution will be normal when $n$ is large. 
+            \end{itemize}
+            \end{mdframed}
+            Note: Standard deviation of $\bar{x}$ is sometimes called the \underline{Standard Error (SE)}.
+        \subsection{Finding Probabilities for the Sample Mean}
+            \begin{itemize}
+                \item If the sampling distribution of $\bar{x}$ is normal or approximately normal, standardize or rescale the interval of interest in terms of $$z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}}$$
+                \item Find the appropriate area using Table 3.
+            \end{itemize}
+            Example: A random sample of size $n = 16$ from a normal distribution with $\mu = 10$ and $\sigma = 8$. Then $P(\bar{x} > 12) = P(z > \frac{12-10}{\frac{8}{\sqrt{16}}}) = P(z > 1) = 1 - 0.8413 = 0.1587$.
+            \newpage\subsubsection{Example 2}
+                A soda filling machine is supposed to fill cans of soda with $12$ fluid ounces. Suppose that the fills are actually normally distributed with a mean of $12.1$ oz and a standard deviation of $0.2$ oz. What is the probability that the average fill for a six-pack of soda is less than $12$ oz?
+                \begin{align*}
+                    P(\bar{x} < 12) = P\bigg(\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}} < \frac{12 - 12.1}{\frac{0.2}{\sqrt{6}}}\bigg) = P(z < 1.22) = 0.1112
+                \end{align*}
+                Therefore, the probability that the average fill for a six-pack of soda is less than $12$ oz is $0.1112$ or $11.12\%$.
+        \subsection{Sampling Distribution of the Sample Proportion}
+            \begin{itemize}
+                \item The Central Limit Theorem can be used to conclude that the binomial random variable $x$ is approximately normal when $n$ is large, with mean $np$ and standard deviation.
+                \item The sample proportion, $\hat{p} = \frac{x}{n}$ is simply a rescaling of the binomial random variable $x$, dividing it by $n$.
+                \item From the Central Limit Theorem, the sampling distribution of $\hat{p}$ will also be approximately normal, with a rescaled mean and standard deviation.
+            \end{itemize}
+            \begin{mdframed}[leftmargin=10pt, rightmargin=10pt]
+                \begin{itemize}
+                    \item A random sample of size $n$ is selected from a binomial population with parameter $p$.
+                    \item The sampling distribution of the sample proportion $\hat{p} = \frac{x}{n}$
+                    \item It will have mean $p$ and standard deviation of $\sqrt{\frac{pq}{n}}$
+                    \item If $n$ is large, and $p$ is not too close to 0 or 1, the sampling distribution will be approximately normal.
+                    \item \underline{Note:} The standard deviation of $\hat{p}$ is sometimes called the \underline{Standard Error (SE)} of p-hat.
+                \end{itemize}
+            \end{mdframed}
+            \subsubsection{Finding Probabilities for the Sample Proportion}
+                If the sampling distribution of $\hat{p}$ is normal or approximately normal, standardize or rescale the interval of interest in terms of $$z = \frac{\hat{p} - p}{\sqrt{\frac{pq}{n}}}$$
+                Then find the appropriate area using Table 3.
+                \textbf{Example}
+                    A random sample of size $n = 100$ from a binomial population with $p = 0.4$
+                    \begin{align*}
+                        P(\hat{p} > 0.5) = P\left(z > \frac{0.5 - 0.4}{\sqrt{\frac{0.4(0.6)}{100}}}\right) = P(z > 2.04) = 1 - 0.9793 = 0.0207
+                    \end{align*}
+                    The soda bottler in the previous example claims that only $5\%$ of the soda cans are underfilled. A quality control technician randomly samples $200$ cans of soda. What is the probability that more than $10\%$ of the cans are underfilled? 
+                    \begin{align*}
+                        n = 200
+                        \\ S: \textnormal{underfilled can}
+                        \\ p = P(S) = 0.05
+                        \\ q = 0.95
+                        \\ np = 10 
+                        \\ nq = 190 
+                    \end{align*}
+                    \begin{align*}
+                        P(\hat{p} > 0.5) = P\left(z > \frac{0.10 - 0.05}{\sqrt{\frac{0.05(0.95)}{100}}}\right) = P(z > 3.24) = 1 - 0.9994 = 0.0006
+                    \end{align*}
+                    Notice the very unusual probability, meaning that if $p = 0.05$ the probability would be unrealistic.
+    \section{Large-Sample Estimation}
+        \begin{itemize}
+            \item Populations are described by their probability distributions and parameters.
+            \begin{itemize}
+                \item For quantitative populations, the location and shape are described by $\mu$ and $\sigma$.
+                \item For a binomial populations, the location and shape are determined by $p$.
+            \end{itemize}
+            \item If the values of parameters are unknown, we make inferences about them using sample information.
+        \end{itemize}
+        \subsection*{Types of Inference}
+            \begin{itemize}
+                \item A consumer wants to estimate the average price of similar homes in her city before putting her home on the market. (\textbf{Estimation:} Estimate $\mu$, the average home price).
+                \item A manufacturer wants to know if a new type of steel is more resistant to high temperatures than an old type was. (\textbf{Hypothesis Test:} Is the new average resistance $\mu_N$ equal to the old average resistance, $\mu_O$)?
+            \end{itemize}
+            Since an estimator is calculated from sample values, it varies from sample to sample according to its \underline{sampling distribution}.
+        \subsection*{Define}
+            \begin{itemize}
+                \item A single value calculated from the sample is called a point estimate.
+                \item $\bar{x}$ is a point estimate of the population parameter $\mu$.
+                \item $\hat{p} = \frac{x}{n}$ is the point estimate of the population parameter $p$.
+                \item $s^2$ is the point estimate of $\sigma^2$.
+            \end{itemize}
+        \subsection{Interval Estimation}
+            \begin{itemize}
+                \item Create an interval $(a, b)$ so that you are fairly sure that the parameter lies between these two values.
+                \item "Fairly sure" means "with high probability" measured using the \textbf{confidence coefficient}, $1 - \alpha$.
+                \item Suppose $1 - \alpha = 0.95$ and that the estimator has a normal distribution. Since we don't know the value of the parameter, consider the Estimator $\pm 1.96$SE which has a variable center. Only if the estimator falls in the tail areas will the interval fail to enclose the parameter. This happens only $5\%$ of the time. 
+            \end{itemize}
+        \subsection*{Changing the Confidence Level}
+            \begin{itemize}
+                \item To change to a general confidence level, $1 - \alpha$, pick a value of $z$ that puts area $1 - \alpha$ in the center of the $z$-distribution. $$100(1 - \alpha) = \textnormal{Confidence Interval: Estimator} \pm z_{\frac{\alpha}{2}}\textnormal{SE}$$
+            \end{itemize}
+        \subsection*{Margin of Error}
+            \begin{itemize}
+                \item For estimators with normal sampling distributions, $95\%$ of all point estimates will lie within $1.96$ standard deviations of the parameter of interest.
+                \item \textbf{Margin of Error:} the maximum error of estimation, calculated as $1.96$(standard error of the estimator).
+            \end{itemize}
+        \subsection{Estimating Means and Proportions}
+            \begin{itemize}
+                \item For a quantitative population, \\ Point Estimator of population mean $\mu : \bar{x}$ \\ Margin of Error $(n \geq 30): \pm 1.96\frac{s}{\sqrt{n}}$
+                \item For a binomial population, \\ Point Estimator of population proportion $p : \hat{p} = \frac{x}{n}$ \\ Margin of Error $(n \geq 30) : \pm 1.96\sqrt{\frac{\hat{p}\hat{q}}{n}}$ 
+            \end{itemize}
+            \subsubsection*{Examples}
+                \begin{itemize}
+                    \item[1] A homeowner randomly samples 64 homes similar to her own and finds that the average selling price is \$250,000 with a standard deviation of \$15,000. Estimate the average selling price for all similar homes in the city.
+                    \begin{mdframed}[leftmargin=0.5cm,rightmargin=0.5cm]
+                        Point Estimator of $\mu : \bar{x} = 250,000$
+                        \\ Margin of Error: $\pm 1.96\frac{s}{\sqrt{n}} = \pm 1.96\frac{15,000}{\sqrt{64}} = \pm 3675$
+                    \end{mdframed} 
+                    \item[2] A quality control technician wants to estimate the proportion of soda cans that are underfilled. He randomly samples 200 cans of soda and finds 10 underfilled cans.
+                    \begin{mdframed}[leftmargin = 0.5cm, rightmargin = 0.5cm]
+                        $n = 200 \hspace{3cm} p =$ proportion of underfilled cans \\ 
+                        Point Estimator of $p : \hat{p} = \frac{x}{n} = \frac{10}{200} = 0.05$ \\
+                        Margin of Error: $\pm 1.96\sqrt{\frac{\hat{p}\hat{q}}{n}} = \pm 1.96\sqrt{\frac{0.05(0.95)}{200}} = \pm 0.03$
+                    \end{mdframed}
+                \end{itemize}
+        \subsection{Confidence Intervals for Means and Proportions}
+            \begin{itemize}
+                \item For a quantitative population, \\ Confidence interval for a population mean $\mu : \bar{x} \pm z_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}$
+                \item For a binomial population, \\ Confidence interval for a population proportion $p  : \hat{p} \pm z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}\hat{q}}{n}}$
+            \end{itemize}
+            \subsubsection*{Examples}
+                \begin{itemize}
+                    \item[3] A random sample of $n = 50$ males showed a mean average daily intake of dairy products equal to 756 grams with a standard deviation of 35 grams. Find a 95\% confidence interval for the population average $\mu$.
+                    \item[-] Note: The population mean of the daily intake of dairy products is $\mu$. A 95\% confidence interval for $\mu$: 
+                    \begin{mdframed}[leftmargin=0.5cm,rightmargin=0.5cm]
+                        $\bar{x} \pm 1.96\frac{s}{\sqrt{n}} \Rightarrow  756 \pm 1.96\frac{35}{\sqrt{50}} \rightarrow 750\pm 9.70$ or $746.30 < \mu < 765.70$ grams.
+                    \end{mdframed}
+                \end{itemize}
+            \subsubsection*{Interpretation of the Confidence Interval in Example 3}
+                \begin{itemize}
+                    \item[-] Intervals constructed in this manner will enclose the population mean $\mu$ 95\% times in repeated sampling.
+                    \item[-] Note: Interpretation is the same for confidence interval of any parameter we construct.
+                \end{itemize}
+                \begin{itemize}
+                    \item[4] Find a 99\% confidence interval for $\mu$, the population average daily intake of dairy products for men.
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                        $\bar{x} \pm 2.58 \frac{s}{\sqrt{n}} \rightarrow 756 \pm 2.58 \frac{35}{\sqrt{50}} \rightarrow 756\pm 12.77$ or $743.23 < \mu < 768.77$ grams.
+                        Note: The interval must be wider to provide for the increased confidence that is does indeed enclose the true value of $\mu$.
+                    \end{mdframed}
+                    \item[-] Intervals constructed in this manner will enclose the population mean 99\% times in repeated sampling.
+                    \item[5] Of a random sample of $n = 150$ college students, 104 of the students said that they had played on a soccer team during their K-12 years. Estimate the proportions of college students who played soccer in their youth with a 98\% confidence interval.
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                        $\hat{p} \pm 2.33\sqrt{\frac{\hat{p}\hat{q}}{n}} \rightarrow \frac{104}{150} \pm 2.33 \sqrt{\frac{0.69(0.31)}{150}} \rightarrow 0.69\pm 0.09$ or $0.60 < p < 0.78$
+                    \end{mdframed}
+                    \item[-] Intervals constructed in this manner will enclose the population proportion 98\% times in repeated sampling.
+                \end{itemize}
+        \subsection{Estimating the Difference between Two Means}
+            \begin{itemize}
+                \item Sometimes we are interested in comparing the means of two populations.
+                \begin{itemize}
+                    \item The average growth of plants fed using two different nutrients.
+                    \item The average scores for students taught with two different teaching methods.
+                \end{itemize}
+                \item We compare the two averages by making inferences about $\mu_1 - \mu_2$, the difference in the two population averages.
+                \begin{itemize}
+                    \item If the two population averages are the same, then $\mu_1 - \mu_2 = 0$.
+                    \item The best estimate of $\mu_1 - \mu_2$ is the difference between the sample means, $\bar{x}_1 - \bar{x}_2$.
+                \end{itemize}
+            \end{itemize}
+        \subsection{Sampling Distribution of the Sample Means}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                \begin{itemize}
+                    \item[1] The mean of $\bar{x}_1 - \bar{x}_2$ is $\mu_1 - \mu_2$, the difference in the population means.
+                    \item[2] The standard deviation of $\bar{x}_1 - \bar{x}_2$ is SE $= \sqrt{\frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2}}$.
+                    \item[3] If the sample sizes are large, the sampling distribution of $\bar{x}_1 - \bar{x}_2$ is approximately normal, and SE can be estimated as SE $= \sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}$.
+                \end{itemize}
+            \end{mdframed}
+            \subsubsection{Estimating Population Means}
+                \begin{itemize}
+                    \item For large samples, point estimates and their margin of error as well as confidence intervals are based on the standard normal $(z)$ distribution.
+                    \item[-] Point Estimate for $\mu_1-\mu_2 : \bar{x}_1-\bar{x}_2$ \\ Margin of Error : $\pm 1.96\sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}$ \\ Confidence Interval for $\mu_1-\mu_2 : (\bar{x}_1-\bar{x}_2\pm z_{\frac{\alpha}{2}}\sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}})$
+                \end{itemize}
+            \subsubsection*{Example}
+                \begin{tabular}{|l|l|l|}
+                    \cline{1-3}
+                    \textbf{Average Daily Intakes} & \textbf{Men} & \textbf{Women} \\ \cline{1-3}
+                    Sample Size & 50 & 50 \\ \cline{1-3}
+                    Sample Mean & 756 & 762 \\ \cline{1-3}
+                    Standard Deviation & 35 & 30 \\ \cline{1-3}
+                \end{tabular}
+                \begin{itemize}
+                    \item Compare the average daily intake of dairy products of men and women using a 95\% confidence interval.
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    \begin{align*}
+                        (\bar{x}_1 - \bar{x}_2\pm 1.96\sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}} \Rightarrow (756 - 762)\pm 1.96\sqrt{\frac{35^2}{\sqrt{50}} + \frac{30^2}{\sqrt{50}}} \\ \Rightarrow -6\pm 12.78 \hspace{3pt} \textnormal{or} -18.78 < \mu_1 - \mu_2 < 6.78)
+                    \end{align*}
+                \end{mdframed}
+                \subsubsection*{Notice}
+                \begin{itemize}
+                    \item Could you conclude, based on this confidence interval, that there is a difference in the average daily intake of dairy products for men and women?
+                    \item[-] The confidence interval contains the value $\mu_1 - \mu_2 = 0$. Therefore, it is possible that $\mu_1 = \mu_2$. You would not want to conclude that there is a difference in average daily intake of dairy products for men and women. 
+                \end{itemize}
+            \subsubsection{Estimating the Difference between Two Proportions}
+                \begin{itemize}
+                    \item Sometimes we are interested in comparing the proportion of \underline{successes} in two binomial populations.
+                    \begin{itemize}
+                        \item[-] The germination rates of untreated seeds and seeds treated with a fungicide.
+                        \item[-] The proportion of male and female voters who favour a particular candidate for governor.
+                    \end{itemize}
+                    \item A random sample of size $n_1$ drawnfrom binomial population with parameter $p_1$ and a random sample size of $n_2$ drawn from binomial population with parameter $p_2$.
+                    \item We compare the two proportions by making inferences about $p_1 - p_2$, the difference in the two population proportions.
+                    \item[-] If the two population proportions are the same, then $p_1 - p_2 = 0$.
+                    \item[-] The best estimate of $p_1 - p_2$ is the difference between the sample proportions, $$\hat{p}_1 - \hat{p}_2 = \frac{x_1}{n_1} - \frac{x_2}{n_2}$$
+                \end{itemize}
+        \subsection{Sampling Distribution of Sample Proportions}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                \begin{itemize}
+                    \item[1] The mean of $\hat{p}_1 - \hat{p}_2$ is $p_1 - p_2$, the difference in the population proportions.
+                    \item[2] The standard deviation of $\hat{p}_1 - \hat{p}_2$ is SE $= \sqrt{\frac{p_1q_1}{n_1} + \frac{p_2q_2}{n_2}}$.
+                    \item[3] If the sample sizes are large, the sampling distribution of $\hat{p}_1 - \hat{p}_2$ is approximately normal, and SE can be estimated as SE $= \sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1} + \frac{\hat{p}_2\hat{q}_2}{n_2}}$.
+                \end{itemize}
+            \end{mdframed}
+            \subsubsection{Estimating Population Proportions}
+                \begin{itemize}
+                    \item For large samples, point estimates and their margin of error as well as confidence intervals are based on the standard normal $(z)$ distribution.
+                    \item[-] Point Estimate for $p_1-p_2 : \hat{p}_1-\hat{p}_2$ \\ Margin of Error : $\pm 1.96\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1} + \frac{\hat{p}_2\hat{q}_2}{n_2}}$ \\ Confidence Interval for $p_1-p_2 : (\hat{p}_1-\hat{p}_2\pm z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1} + \frac{\hat{p}_2\hat{q}_2}{n_2}})$
+                \end{itemize}
+            \newpage\subsubsection*{Example}
+                \begin{tabular}{|l|l|l|}
+                    \cline{1-3}
+                    \textbf{Youth Soccer} & \textbf{Male} & \textbf{Female} \\ \cline{1-3}
+                    Sample Size & 80 & 70 \\ \cline{1-3}
+                    Played Soccer & 65 & 39 \\ \cline{1-3}
+                \end{tabular}
+                \begin{itemize}
+                    \item Compare the proportions of male and female college students who said that they had played on a soccer team during their K-12 years using a 99\% confidence interval.
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    \begin{align*}
+                        (\hat{p}_1 - \hat{p}_2)\pm 2.58\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1} + \frac{\hat{p}_2\hat{q}_2}{n_2}} \Rightarrow \left(\frac{65}{80} - \frac{39}{70} \right) \pm 2.58\sqrt{\frac{0.89(0.19)}{80} + \frac{0.56(0.44)}{70}} \\ \Rightarrow 0.25\pm 0.19 \hspace{3pt} \textnormal{or} \hspace{3pt} 0.06 < p_1 - p_2 < 0.44                    
+                    \end{align*}
+                \end{mdframed}
+                \subsubsection*{Notice}
+                    \begin{itemize}
+                        \item Could you conclude, based on this confidence interval, that there is a difference in the proportion of male and female college students who said that they had played on a soccer team during their K-12 years?
+                        \item The confidence interval does not contain the value $p_1 - p_2 = 0$. Therefore, it is not likely that $p_1 = p_2$. You would conclude that there is a difference in the proportions for males and femals.
+                        \item[IE:] "A higher proportion of males than females played soccer in their youth."
+                    \end{itemize}
+            \subsubsection{Choosing the Sample Size}
+                \begin{itemize}
+                    \item The total amount of relevant information in a sample is controlled by two factors: 
+                    \begin{itemize}
+                        \item The \textbf{sampling plan} or \textbf{experimental design:} the procedure for collecting the information.
+                        \item The \textbf{sample size $n$:} the amount of information you collect.
+                    \end{itemize}
+                    \item In a statistical estimation problem, the accuracy of the estimation is measured by the margin of error or the "width of the confidence interval".
+                    \item To Choose the Sample Size: 
+                    \begin{itemize}
+                        \item[1] Determine the size of the margin of error, $B$, that you are willing to tolerate.
+                        \item[2] Choose the sample size by solving for $n$ or $n = n_1 = n_2$ in the inequality: 1.96 SE $= B$, where SE is a function of the sample size $n$.
+                        \item[3] For quantitative populations, estimate the population standard deviation using a previously calculated value of $s$ or the range approximation $\sigma \approx \frac{\textnormal{Range}}{4}$.
+                        \item[4] For binomial populations, use the conservative approach and approximate $p$ using the value $p = 0.5$. 
+                    \end{itemize}
+                \end{itemize}
+            \subsubsection*{Example}
+                \begin{itemize}
+                    \item[-] A producer of PVC pipe wants to survey wholesalers who buy his product in order to estimate the proportion who plan to increase their purchases next year. What sample size is required if he wants his estimate to be within 0.04 of the actual proportion with probability equal to 0.95?
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    \begin{align*}
+                        1.96\sqrt{\frac{pq}{n}} = 0.04 \Rightarrow 1.96\sqrt{\frac{0.5(0.5)}{n}} = 0.04 \Rightarrow \sqrt{n} = \frac{1.96\sqrt{0.5(0.5)}}{0.04} = 24.5 \\ \Rightarrow n = 24.5^2 = 600.25
+                    \end{align*}
+                \end{mdframed}
+    \section{Large-Sample Tests of Hypotheses}
+        \subsection{Hypothesis, Null and Alternative Hypothesis}
+            \begin{itemize}
+                \item Any statement regarding the value of a population parameter is called a hypothesis.
+                \item The hypothesis to be tested is called null hypothesis.
+                \item The complement of the null hypothesis is called an alternative hypothesis.
+            \end{itemize}
+            \subsubsection{One and Two Sided Alternatives}
+                \begin{itemize}
+                    \item The null hypothesis is always a single value of the parameter, $H_0 : \mu = \mu_0$
+                    \item The alternative hypothesis can be two sided, $H_A : \mu \neq \mu_0$ or one sided, $H_A : \mu < \mu_0$ or $H_A : \mu > \mu_0$.
+                \end{itemize}
+            \subsubsection*{Example}
+                \begin{itemize}
+                    \item[1] A drug manufacturer claimed that the mean potency, $\mu$, of one of its antibiotics was 80\%. A random sample of $n = 100$ capsules were tested and produced a sample mean of $\bar{x} = 79.7\%$, with a standard deviation of $s = 0.8\%$. Does the data present sufficient evidence to refute the manufactuerer's claim?
+                    \item[-] Here $H_0 : \mu = 80$ is the null hypothesis and $H_A : \mu \neq 80\%$ is the alternative hypothesis. \underline{Note:} the alternative is two sided.
+                    \item[2] A drug manufactuerer claimed that the mean potency, $\mu$, of one of its antibiotics was less than 80\%. A random sample of $n = 100$ capsules were tested and produced a sample mean of $\bar{x} = 79.7\%$, with a standard deviation of $s = 0.8\%$. Does the data present sufficient evidence to refute the manufactuerer's claim?
+                    \item[-] Here $H_0 : \mu = 80$ is the null hypothesis and $H_A : \mu < 80$ is the alternative hypothesis. \underline{Note:} the alternative is one sided. 
+                \end{itemize}
+        \subsection{Testing a Null Hypothesis}
+            \begin{itemize}
+                \item We need a quantity which is called a test statistic.
+                \item We can then test using one of the three methods:
+                \item[1] Critical value of the test statistic.
+                \item[2] Using a P-value. 
+                \item[3] Confidence Interval Method.
+            \end{itemize}
+            \subsubsection{Critical Value Method}
+                \begin{itemize}
+                    \item Consider a two sided alternative hypothesis. Notes that the null hypothesis always specifies a single value of the parameter. $H_0 : \mu = \mu_0$, $H_A : \mu \neq \mu_0$.
+                    \item \underline{Note:} The Rejection Region - Reject $H_0$ if $z > 2.33$, if the test statistic falls in the rejection region, its p-value will be less than $\alpha = 0.01$.
+                    \begin{itemize}
+                        \item Additionally, reject $H_0$ if $z < -1.645$ if the test statistic falls in the rejection region, its p-value will be less than $\alpha = 0.05$.
+                    \end{itemize}
+                \end{itemize}
+            \subsubsection*{Test Statistic}
+                \begin{itemize}
+                    \item Assume to begin with that $H_0$ is true. The sample mean $\bar{x}$ is our best estimate of $\mu$, and we use it in a standardized form as the \textbf{test statistic:}
+                    \begin{equation*}
+                        z = \frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}} \approx \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}
+                    \end{equation*}
+                    \item[-] Since $\bar{x}$ has an approximate normal distribution with mean $\mu_0$ and standard deviation $\frac{\sigma}{\sqrt{n}}$, the test statistic is approximately normal.
+                    \item If $H_0$ is true the value of $\bar{x}$ should be close to $\mu_0$, and $z$ will be close to zero. If $H_0$ is false, $\bar{x}$ will be much larger or smaller than $\mu_0$, and $z$ will be much larger or smaller than zero, indicating that we should reject $H_0$.
+                \end{itemize}
+            \subsubsection*{Large Sample Test of a Population Mean}
+                \begin{itemize}
+                    \item Take a random sample of size $n \geq 30$ from a population with mean $\mu$ and standard deviation $\sigma$.
+                    \item We assume that either: $\sigma$ is known or $s \approx \sigma$ since $n$ is large.
+                \end{itemize}
+            \subsubsection*{Parts of a Statistical Test}
+                \textbf{Conclusion:}
+                    \begin{itemize}
+                        \item[-] Either "Reject $H_0$" or "Do not reject $"H_0$", along with a statement about the reliability of your conclusion.
+                    \end{itemize}
+                \textbf{How do you decide when to reject $H_0$?}
+                    \begin{itemize}
+                        \item[-] Depends on the \textbf{significance level ($\alpha$)}, the maximum tolerable risk you want to have of making a mistake, if you decide to reject $H_0$.
+                        \item[-] Usually, the significance level is $\alpha = 0.01$ or $\alpha = 0.05$.
+                    \end{itemize}
+                From Example [1], the value of the test statistic is,
+                \begin{equation*}
+                    Z = \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}} = \frac{79.7-80}{\frac{0.8}{\sqrt{100}}} = -3.75
+                \end{equation*}
+            \subsubsection*{Example 1 Revisited}
+                \begin{itemize}
+                    \item Critical Value Method:
+                    \begin{itemize}
+                        \item[-] Take $\alpha = 0.05$, then $Z_{\frac{\alpha}{2}} = Z_{0.025} = 1.96$.
+                        \item[-] Since $|Z| = 3.75 > Z_{0.025} = 1.96$, we reject the null hypothesis ($H_0$) at 5\% level of significance. Therefore, there is insufficient evidence in the data to support the manufacturer's claim.
+                    \end{itemize}
+                \end{itemize}
+            \subsubsection{P-Value Method: Likely or Unlikely?}
+                \begin{itemize}
+                    \item Once you've calculated the observed value of the test statistic, calculate its \textbf{p-value} using the following formula:
+                \end{itemize}
+                \newpage\begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    \textbf{p-value:} The probability of observing, just by chance, a test statistic as extreme or even more extreme than what we've actually observed. If $H_0$ is rejected this is the actual probability that we have made an incorrect decision.
+                \end{mdframed}
+                \begin{itemize}
+                    \item If this probability is very small, less than some preassigned significance level ($\alpha$), then we can reject $H_0$.
+                    \item If the alternative hypothesis is one-sided, $H_A : \mu < \mu_0$, then the $p-\textnormal{value} = p(Z < -Z_0)$ and $Z_0 = \left|\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}\right|$. \underline{Note:} Reverse both equality symbols if the null hypothesis had a inverted equality than the example.
+                    \item However if $H_A : \mu \neq \mu_0$, then the $p-\textnormal{value} = 2p(Z < -Z_0)$ and $Z_0 = \left|\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}\right|$.
+                \end{itemize}
+            \subsubsection*{Example 1 Revisited}
+                \begin{itemize}
+                    \item The null and alternative hypothesises are: $H_0 : \mu = 80$ and $H_A : \mu \neq 80$.
+                    \item Z = -3.75
+                    \item P-value for this test is: $p-\textnormal{value} = 2p(Z < -3.75) = 0.0$
+                    \item[-] Since $p-\textnormal{value} < 0.05$, we reject the null hypothesis at 5\% level of significance.
+                \end{itemize}
+            \subsubsection{Statistical Significance of P-Values}
+                \begin{itemize}
+                    \item If the $p-\textnormal{value}$ is less than 0.01, reject $H_0$. The results are \textbf{highly significant}.
+                    \item If the $p-\textnormal{value}$ is between 0.01 and 0.05, reject $H_0$. The results are \textbf{statistically significant}.
+                    \item If the $p-\textnormal{value}$ is between 0.05 and 0.10, do not reject $H_0$. The results are \textbf{tending towards significance}.
+                    \item If the $p-\textnormal{value}$ is greater than 0.10, do not reject $H_0$. The results are \textbf{not statistically significant}.
+                \end{itemize}
+        \subsection{Confidence Interval Method}
+            \begin{itemize}
+                \item Confidence interval method can only be applied to a two-sided test.
+                \item Construct a $(1-\alpha)100\%$ confidence interval. Then, if the value of the parameter under the null hypothesis falls in this interval then we do not reject the null hypothesis. Otherwise we reject the null hypothesis in favor of the alternative.
+            \end{itemize}
+            \subsubsection*{Example}
+                \begin{itemize}
+                    \item A homeowner randomly samples 64 homes similar to her own and finds that the average selling price is \$252,000 with a standard deviation of \$15,000. Is there sufficient evidence to conclude that the average selling price in her area is \$250,000? Use $\alpha = 0.01$.
+                    \item So: $H_0 : \mu = 250,000$ is the null hypothesis. $H_A : \mu \neq 250,000$ is the alternative hypothesis. \underline{Note:} the alternative is two-sided.
+                    \item Additionally: A 99\% confidence interval for population mean is: 
+                    \begin{align*}
+                        \left(\bar{x}-z_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}, \bar{x}+z_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}\right) = \left(252000 - 2.575\frac{15000}{\sqrt{64}}, 252000+2.575\frac{15000}{\sqrt{64}}\right) \\
+                        \Rightarrow (247171.90, 256828.10)
+                    \end{align*}
+                    \item[-] Since 250,000 is included in the 99\% confidence interval we do not reject the null hypothesis. There is evidence in the data to suggest that the mean selling price is \$250,000.
+                \end{itemize}
+            \subsubsection{Statistical Significance of the Confidence Interval Method}
+                \begin{itemize}
+                    \item The critical value approach and the $p-\textnormal{value}$ approach produce identical results.
+                    \item The $p-\textnormal{value}$ approach is often preferred because:
+                    \begin{itemize}
+                        \item Computer printouts usually calculate $p-\textnormal{value}$
+                        \item You can evaluate the test results at any significance level you choose.
+                    \end{itemize}
+                    \item[Q:] What should you do if you are the experimenter and no one gives you a significance level to use?
+                    \item The General Test Statistic: $$z = \frac{\textnormal{statistic} - \textnormal{hypothesized value}}{\textnormal{standard error of statistic}}$$
+                \end{itemize}
+        \subsection{Testing the Difference between Two Means}
+            \begin{itemize}
+                \item[-] A random sample of size $n_1$ is drawn from population 1 with mean $\mu_1$ and variance $\sigma_1^2$.
+                \item[-] A random sample of size $n_2$ is drawn from population 2 with mean $\mu_2$ and variance $\sigma_2^2$.
+                \item The hypothesis of interest involves the difference, $\mu_1 - \mu_2$, in the form: $H_0 : \mu_1 - \mu_2 = D_0$ versus $H_a : \textnormal{one of three}$ where $D_0$ is the hypothesized difference, usually zero.
+            \end{itemize}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                \begin{flushleft}
+                        $H_0$ : $\mu_1 - \mu_2 = D_0$ \\
+                        $H_a$ : one of three alternatives \\ 
+                        Test Statistic: $z \approx \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$ \\
+                        with rejection regions and/or $p$-values based on the standard normal $z$ distribution.
+                \end{flushleft}
+            \end{mdframed}
+        \subsection{Testing a Binomial Proportion}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                \begin{flushleft}
+                    A random sample of size $n$ from a binomial population is selected to test. \\
+                    $H_0$ : $p = p_0$ versus $H_a$ : one of three alternatives \\
+                    Test Statistic: $z \approx {\frac{\hat{p}-p_0}{\sqrt{\frac{p_0q_0}{n}}}}$ \\
+                    with rejection regions and/or $p$-values based on the standard normal $z$ distribution.
+                \end{flushleft}
+            \end{mdframed}
+        \subsection{Testing the Difference between Two Proportions}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                \begin{flushleft}
+                    $H_0$ : $p_1 - p_2 = 0$ versus $H_a$ : one of three alternatives \\ 
+                    Test Statistic: $z \approx {\frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}\hat{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}}$ \\
+                    with $\hat{p} = \frac{x_1 + x_2}{n_1 + n_2}$ to estimate the common value of $p$ and rejection regions or $p$-values based on the standard normal $z$ distribution.
+                \end{flushleft}
+            \end{mdframed}
+        \subsection{Steps in Hypothesis Testing}
+            \begin{itemize}
+                \item Set up the null and the alternative hypothesises.
+                \item Calculate the test statistic.
+                \item Obtain the critical value or the $p$-value or and appropriate confidence interval and make a decision as to reject or not to reject the null hypothesis.
+                \item Make a decision and write a conclusion with reason.
+            \end{itemize}
+    %//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////$
+    %                                   BELOW IS THE 3rd PART OF THE COMPILED LECTURE NOTES                                                        %
+    %//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////%
+    \section{Inference from Small Samples}
+        When the sample size is small, the estimation and testing procedures of the previous chapters are not appropriate. There are equivalent small sample test and estimation procedures for;
+        \begin{itemize}
+            \item $\mu$, the mean of a normal population.
+            \item $\mu_1 - \mu_2$, the difference between two population means.
+            \item $\sigma^2$, the variance of a normal population.
+            \item The ratio of two population variances.
+        \end{itemize}
+        \subsection{Student's 't' Distribution}
+            \begin{itemize}
+                \item This statistic does have a sampling distribution that is well known. It is called the \textbf{Student's 't' distribution}, and has \textbf{$n-1$ degrees of freedom.}
+                \begin{equation*}
+                    t = \frac{\bar{x}-\mu}{\frac{s}{\sqrt{n}}}
+                \end{equation*}
+                \item Note: We can use this distribution to create estimation and testing procedures for the population mean $\mu$.
+            \end{itemize}
+            \subsubsection{Properties of Student's 't' Distribution}
+                \begin{itemize}
+                    \item Mound-shaped and symmetric about zero.
+                    \item More variable than $z$-score, with "heavier tails".
+                    \item Shape depends on the sample size $n$ or the \underline{degrees of freedom, $n-1$}.
+                    \item As $n$ increases the shapes of the $t$ and $z$ distributions become almost identical.
+                \end{itemize}
+            \subsubsection*{Using the t-Table}
+                \begin{itemize}
+                    \item Statistical Table 4 gives the values of $t$ that cut off certain critical values in the tail of the $t$-distribution.
+                    \item Index $df$ and the appropriate tail area $\alpha$ to find $t(\alpha)$, the value of $t$ with area $\alpha$ to its right.
+                \end{itemize}
+        \subsection{Small Sample Inference for a Population Mean}
+            \begin{itemize}
+                \item The basic procedures are the same as those used for large samples. For a test of hypothesis:
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    Test $H_0: \mu = \mu_0$ versus $H_a:$ one or two tailed using the test statistic,
+                    $t = \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$
+                    using p-values or a rejection region based on a $t$-distribution with $df = n - 1$
+                \end{mdframed}
+                \newpage
+                \item For a $100(1-\alpha)\%$ confidence interval for the population mean $\mu$:
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    $\bar{x} \pm t_{\frac{\alpha}{2}}\frac{s}{\sqrt{n}}$ \\
+                    where $t_{\frac{\alpha}{2}}$ is the value of $t$ that cuts off area $\frac{\alpha}{2}$ in the tail of a $t$-distribution with $df = n - 1$.
+                \end{mdframed}
+            \end{itemize}
+            \subsubsection*{Example}
+                A sprinkler system is designed so that the average time for the sprinklers to activate after being turned on is no more than 15 seconds. A test of 6 systems gave the following times:
+                17, 31, 12, 17, 13, 25. Is the system working as specified? Test using $\alpha = 0.05$.
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    $H_0: \mu = 15$ (working as specified) \\
+                    $H_a: \mu > 15$ (not working as specified)
+                \end{mdframed}
+                \begin{itemize}
+                    \item[1] Calculate the sample mean and standard deviation:
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                       \begin{equation*}
+                           \bar{x} = \frac{\sum x_i}{n} = \frac{115}{6} = 19.167
+                        \end{equation*} 
+                        \begin{equation*}
+                            s = \sqrt{\frac{\sum x^2 - \frac{(\sum x)^2}{n}}{n-1}} = \sqrt{\frac{2477 - \frac{155^2}{6}}{5}} = 7.387
+                        \end{equation*}
+                    \end{mdframed}
+                    \item[2] Calculate the test statistic and find the rejection region for $\alpha = 0.05$
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                        \begin{center}
+                            Test Statistic:
+                            \begin{equation*}
+                                t = \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{x}}} = \frac{19.167 - 15}{\frac{7.387}{\sqrt{6}}} = 1.38
+                            \end{equation*}
+                            Degrees of Freedom:
+                            \begin{equation*}
+                                df = n - 1 = 6 - 1 = 5
+                            \end{equation*}
+                            Rejection Region: \\
+                            Reject $H_0$ if $t > 2.015$. \\
+                            If the test statistic falls in the rejection region, its $p$-value will be less than $\alpha = 0.05$.
+                        \end{center}
+                    \end{mdframed}
+                    \newpage
+                    \item[3] Conclusion: Compare the observed test statistic to the rejection region, and draw conclusions.
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                        \begin{center}
+                            $H_0: \mu = 15$ \\ 
+                            $H_a: \mu > 15$ \\
+                            Test Statistic: $t = 1.38$ \\
+                            Rejection Region: Reject $H_0$ if $t > 2.015$.
+                        \end{center}
+                    \end{mdframed}
+                    Conclusion: For our example, $t = 1.38$ does not fall in the rejection region and $H_0$ is not rejected. There is insufficient evidence to indicate that the average activation time is greater than 15.
+                \end{itemize}
+        \subsection{Testing the Difference between Two Means}
+            \begin{itemize}
+                \item The test statistic used in Chapter 9:
+                \begin{center}
+                    \begin{equation*}
+                        z \approx \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+                    \end{equation*}
+                \end{center}
+                \item does not have either a $z$ or a $t$ distribution, and cannot be used for small-sample inference.
+                \item We need to make one more assumption, that the population variances, although unknown, are equal.
+                \item[-] Instead of estimating each population variance separately, we estimate the common variance with:
+                \begin{center}
+                    \begin{equation*}
+                        s^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}
+                    \end{equation*}
+                \end{center}
+                \item[-] Alongside its test statistic:
+                \begin{center}
+                    \begin{equation*}
+                        t = \frac{\bar{x_1} - \bar{x_2} - D_0}{\sqrt{s^2\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
+                    \end{equation*}
+                \end{center}
+                \item[-] has a $t$ distribution with $n_1 + n_2 - 2$ degrees of freedom.
+                \item[-] You can also create a $100(1 - \alpha)\%$ confidence interval for $\mu_1 - \mu_2$
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    \begin{equation*}
+                        (\bar{x_1}-\bar{x_2})\pm t_{\frac{\alpha}{2}}\sqrt{s^2\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}
+                    \end{equation*}
+                    with:
+                    \begin{equation*}
+                        s^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}
+                    \end{equation*}
+                \end{mdframed}
+                Note the three assumptions:
+                \begin{itemize}
+                    \item[1] Original populations normal.
+                    \item[2] Samples random and independent.
+                    \item[3] Equal population variances. 
+                \end{itemize}
+            \end{itemize}
+            \subsubsection*{Example}
+                Two training procedures are compared by measuring the time that it takes trainees to assemble a device. A different group of trainees are taught using each method. Is there a difference in the two methods? Use $\alpha = 0.01$
+                \begin{center}
+                    \begin{tabular}{|l|l|l|}
+                        \cline{1-3}
+                        \textbf{Time to Assemble} & \textbf{Method 1} & \textbf{Method 2} \\ \cline{1-3}
+                        Sample Size & 10 & 12 \\ \cline{1-3}
+                        Sample Mean & 35 & 31 \\ \cline{1-3}
+                        Sample Standard Deviation & 4.9 & 4.5 \\ \cline{1-3}
+                    \end{tabular}
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                        \begin{equation*}
+                            H_0 : \mu_1 - \mu_2 = 0
+                        \end{equation*}
+                        \begin{equation*}
+                            H_a : \mu_1 - \mu_2 \neq 0
+                        \end{equation*}
+                        Test Statistic:
+                        \begin{equation*}
+                            t = \frac{\bar{x_1} - \bar{x_2} - 0}{\sqrt{s^2\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
+                        \end{equation*}
+                    \end{mdframed}
+                \end{center}
+                \begin{itemize}
+                    \item Solve this problem by approximating the $p$-value using Statistical Table 4. \newpage
+                    \item[-] Calculate:
+                    \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                        \begin{equation*}
+                            s^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2} = \frac{9(4.9^2) + 11(4.5^2)}{20} = 21.942
+                        \end{equation*}
+                        Test Statistic:
+                        \begin{equation*}
+                            t = \frac{35 - 31}{\sqrt{21.942\left(\frac{1}{10} + \frac{1}{12}\right)}} = 1.99
+                        \end{equation*}
+                        \begin{align*}
+                            P\textnormal{-value}: P(t > 1.99) + P(t < -1.99) \\
+                            P(t > 1.99) = \frac{1}{2}(p\textnormal{-value}) \\ 
+                            df = n_1 + n_2 - 2 = 10 + 12 - 2 = 20 \\ 
+                            0.025 < \frac{1}{2}(p\textnormal{-value}) < 0.05 \\ 
+                            0.05 < p\textnormal{-value} < 0.10
+                        \end{align*}
+                        Since the $p$-value is greater than $\alpha = 0.01$, $H_0$ is not rejected. There is insufficient evidence to indicate a difference in the population means.
+                    \end{mdframed}
+                    \item Note to test the two means are equal we need the assumption that the two variances are equal.
+                \end{itemize}
+        \subsection{The Paired-Difference Test}
+            \begin{itemize}
+                \item Sometimes the assumption of independent samples is intentionally violated, resulting in a matched-pairs or paired-difference test.
+                \item By designing the experiment in this way, we can eliminate unwanted variability in the experiment by analyzing only the difference, $d_i = x_{1i} - x_{2i}$
+                \item To see if there is a difference in the two population means, $\mu_1 - \mu_2$.
+            \end{itemize}
+            \subsubsection*{Example}
+                \begin{center}
+                    \begin{tabular}{|l|l|l|l|l|l|}
+                        \cline{1-6}
+                        \textbf{Car} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\ \cline{1-6}
+                        Type A & 10.6 & 9.8 & 12.3 & 9.7 & 8.8 \\ \cline{1-6}
+                        Type B & 10.2 & 9.4 & 11.8 & 9.1 & 8.3 \\ \cline{1-6}
+                    \end{tabular}
+                \end{center}
+                \begin{itemize}
+                    \item One Type A and one Type B tire are randomly assigned to each of the rear wheels of five cars. Compare the average tire wear for types A and B using a test of hypothesis.
+                    \item But the samples are not independent. The pairs of responses are linked because measurements are taken on the same car.
+                    \item $H_0: \mu_1 - \mu_2 = 0$ \\ $H_a: \mu_1 - \mu_2 \neq 0$
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    To test $H_0: \mu_1 - \mu_2 = 0$, we test $H_0: \mu_d = 0$ using the test statistic: $$t = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}}$$ 
+                    where $n = $ number of pairs, $\bar{d}$ and $s_d$ are the mean and standard deviation of the differences, $d_i$. Use the $p$-value or a rejection region based  on a $t$-distribution with $df = n - 1$.
+                \end{mdframed}
+                \begin{center}
+                    \begin{tabular}{|l|l|l|l|l|l|}
+                        \cline{1-6}
+                        \textbf{Car} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\ \cline{1-6}
+                        Type A & 10.6 & 9.8 & 12.3 & 9.7 & 8.8 \\ \cline{1-6}
+                        Type B & 10.2 & 9.4 & 11.8 & 9.1 & 8.3 \\ \cline{1-6}
+                        Difference & 0.4 & 0.4 & 0.5 & 0.6 & 0.5 \\ \cline{1-6}
+                    \end{tabular}
+                \end{center}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    $H_0: \mu_1 - \mu_2 = 0$ \\ $H_a: \mu_1 - \mu_2 \neq 0$ \\
+                    Calculate:
+                    \begin{equation*}
+                        \bar{d} = \frac{\sum d_i}{n} = 0.48
+                    \end{equation*}
+                    \begin{equation*}
+                        s_d = \sqrt{\frac{\sum d_i^2 - \frac{(\sum d_i)^2}{n}}{n - 1}} = 0.0837
+                    \end{equation*}
+                    Test Statistic:
+                    \begin{equation*}
+                        t = \frac{\bar{d} - 0}{\frac{s_d}{\sqrt{n}}} = \frac{0.48 - 0}{\frac{0.0837}{\sqrt{5}}} = 12.8
+                    \end{equation*}
+                \end{mdframed}
+                \begin{itemize}
+                    \item \underline{Rejection Region:} Reject $H_0$ if $t > 2.776$ or $t < -2.776$
+                    \item \underline{Conclusion:} Since $t = 12.8$, $H_0$ is rejected. There is a difference in the average tire wear for the two types of tires.
+                    \item Note:
+                    \begin{itemize}
+                        \item You can construct a $100(1- \alpha)\%$ confidence interval for a paired experiment using $$\bar{d} \pm t_{\frac{\alpha}{2}} \frac{s_d}{\sqrt{n}}$$
+                        \item If zero falls in this interval we do not reject the null hypothesis of the equality of the two means.
+                    \end{itemize}
+                \end{itemize}
+        \subsection{Inference Concerning a Population Variance}
+            \begin{itemize}
+                \item Sometimes the primary parameters of interest is not the population mean $\mu$ but rather the population variance $\sigma^2$. We choose a random sample of size $n$ from a normal distribution.
+                \item The sample variance $s^2$ can be used in its standardized form: $$\chi^2 = \frac{(n-1)s^2}{\sigma^2}$$
+                \item Which has a $\chi^2$ distribution with $n-1$ degrees of freedom.
+            \end{itemize}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                To test $H_0: \sigma^2 = \sigma^2$, versus $H_a:$ one or two tailed. \\
+                We utilise the test statistic:
+                \begin{equation*}
+                    \chi^2 = \frac{(n-1)s^2}{\sigma_0^2}
+                \end{equation*}
+                with a rejection region based on a $\chi^2$ distribution with $df = n - 1$. \\
+                Confidence Interval of:
+                \begin{equation*}
+                    \frac{(n-1)s^2}{\chi^2_{\frac{\alpha}{2}}} < \sigma^2 < \frac{(n - 1)s^2}{\chi^2_{(\frac{1-\alpha}{2})}}
+                \end{equation*}
+            \end{mdframed}
+            \subsubsection*{Example}
+                \begin{itemize}
+                    \item A cement manufacturer claims that his cement has a compressive strength with a standard deviation of $10\textnormal{kg}/\textnormal{cm}^2$ or less. A sample of $n = 10$ measurements produced a mean and standard deviation of 312 and 13.96, respectively.
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    A test of hypothesis:
+                    \begin{itemize}
+                        \item[-] $H_a: \sigma^2 > 100$, claim is wrong
+                        \item[-] $H_0: \sigma^2 = 100$, claim is correct
+                    \end{itemize}
+                    uses the test statistic:
+                    \begin{equation*}
+                        \chi^2 = \frac{(n-1)s^2}{10^2} = \frac{9(13.96^2)}{100} = 17.5
+                    \end{equation*}
+                \end{mdframed}
+                \begin{itemize}
+                    \item Does the data produce sufficient evidence to reject the manufacturer's claim? Use $\alpha = 0.05$.
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5]
+                   \underline{Rejection Region:} \\
+                   Reject $H_0$ if $\chi^2 > 16.919$ ($\alpha = 0.05$) \\
+                   \underline{Conclusion:} \\
+                   Since $\chi^2 = 17.5$, $H_0$ is rejected. The standard deviation of the cement strengths is more than 10. 
+                \end{mdframed}
+        \subsection{Inference Concerning Two Population Variances}
+            \begin{itemize}
+                \item We can make inferences about the ratio of two population variances in the form of a ratio. We choose two independent random samples of size $n_1$ and $n_2$ from normal distributions.
+                \item If the two population variances are equal, the statistic: $$F = \frac{s_1^2}{s_2^2}$$
+                \item Has an $F$ distribution with $df_1 = n_1 - 1$ and $df_2 = n_2 - 1$ degrees of freedom.
+                \item Statistical Table 6 gives only upper critical values of the $F$ statistic for a given pair of $df_1$ and $df_2$.
+            \end{itemize}
+            \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                To test $H_0: \sigma_1^2 = \sigma_2^2$, versus $H_a: $ one or two tailed, we use the test statistic:
+                \begin{equation*}
+                    F = \frac{s_1^2}{s_2^2}
+                \end{equation*}
+                \begin{itemize}
+                    \item[-] Where $s_1^2$ is the larger of the two sample variances with a rejection region based on an $F$ distribution with $df_1 = n_1 - 1$ and $df_2 = n_2 - 1$
+                \end{itemize}
+                Confidence Interval:
+                \begin{equation*}
+                    \frac{s_1^2}{s_2^2} \frac{1}{F_{df_1,df_2}} < \frac{\sigma_1^2}{\sigma_2^2} < \frac{s_1^2}{s_2^2} F_{df_2,df_1}
+                \end{equation*}
+            \end{mdframed}
+            \subsubsection*{Example}
+                \begin{itemize}
+                    \item An experimenter has performed a lab experiment using two groups of rats. He wants to test $H_0: \mu_1 = \mu_2$, but first he wants to make sure that the population variances are equal.
+                \end{itemize}
+                \begin{center}
+                    \begin{tabular}{|l|l|l|} \cline{1-3}
+                        & \textbf{Standard (2)} & \textbf{Experimental (1)} \\ \cline{1-3}
+                        Sample Size & 10 & 11 \\ \cline{1-3}
+                        Sample Mean & 13.64 & 12.42 \\ \cline{1-3}
+                        Sample Standard Deviation & 2.3 & 5.8 \\ \cline{1-3}
+                    \end{tabular}
+                \end{center}
+                \begin{itemize}
+                    \item[1] Preliminary test:
+                    \begin{itemize}
+                        \item[-] $H_0: \sigma^2_1 = \sigma^2_2$, versus $H_a: \sigma^2_1 \neq \sigma^2_2$
+                    \end{itemize}
+                \end{itemize}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    Test Statistic:
+                    \begin{equation*}
+                        F = \frac{s_1^2}{s_2^2} = \frac{5.8^2}{2.3^2} = 6.36
+                    \end{equation*}
+                    We designate the sample with the larger standard deviation as sample 1, to force the test statistic into the upper tail of the $F$ distribution. \\
+                    The rejection region is two-tailed, with $\alpha = 0.05$, but we only need to find the upper critical value, which has $\frac{\alpha}{2} = 0.025$ to its right. \\ 
+                    From Table 6, with $df_1 = 10$ and $df_2 = 9$, we reject $H_0$ if $F > 3.96$. \\
+                    \underline{Conclusion:} Reject $H_0$. There is sufficient evidence to indicate that the variances are \underline{unequal.} Do not rely on the assumption of equal variances for your $t$ test!
+                \end{mdframed}
+            \subsubsection{Note for the F-Test}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    Formula: $F = \frac{s_1^2}{s_2^2}$
+                    \begin{itemize}
+                        \item Where $s_1^2$ is the larger of the two sample variances. The table only provides critical values at $\frac{\alpha}{2}$ and not at $\frac{1-\alpha}{2}$. So, to do a test at $100\alpha\%$ level of significance, we look for the value of $F$ at $100(\frac{\alpha}{2})\%$ level of significance.
+                        \item For the above example, $s_1 = 5.8$, $s_2 = 2.3$, $n_1 = 11$, $n_2 = 10$, $df_1 = 11 - 1 = 10$, and $df_2 = 10 - 1 = 9$. So $F = \frac{5.8^2}{2.3^2} = 6.36$.
+                        \item To do a test at $\alpha = 0.05$ we compare $F = 6.36$ with $F_{0.025}(df_1,df_2) = F_{0.025}(10,9) = 3.96$. Since $F = 6.36 > F_{0.025}(10,9) = 3.96$ we reject the hypothesis of equality of the two variances.
+                        \item In this case we cannot proceed to test the equality of the two means with the two sample $t$-test studied in this course. A new formula is required which is not available at this current time.
+                    \end{itemize}                    
+                \end{mdframed}
+                \newpage
+            \subsubsection{Confidence Interval for Sigma / Sigma}
+                \begin{mdframed}[leftmargin=0.5cm, rightmargin=0.5cm]
+                    Confidence Interval for $\frac{\sigma_1^2}{\sigma_2^2}$
+                    \begin{itemize}
+                        \item A 95\% confidence interval for $\frac{\sigma_1^2}{\sigma_2^2}$ is $$\frac{s_1^2}{s_2^2} \frac{1}{F_{df_1,df_2}} < \frac{\sigma_1^2}{\sigma_2^2} < \frac{s_1^2}{s_2^2} F_{df_2, df_1}$$
+                        \item[-] Or $\left[\frac{\left(\frac{s_1^2}{s_2^2}\right)}{F_{0.025}}(df_1,df_2), \frac{\left(\frac{s_1^2}{s_2^2}\right)}{F_{0.025}}(df_2,df_1)\right]$
+                    \end{itemize}
+                    Compute:
+                    \begin{align*}
+                        n_1 = 10, n_2 = 11 \\
+                        df_1 = 10 - 1 = 9 \\
+                        df_2 = 11 - 1 = 10 \\
+                        s_1 = 2.3, s_2 = 5.8 \\
+                        F_{0.025}(df_1, df_2) = F_{0.025}(9, 10) = 3.78 \\
+                        F_{0.025}(df_2, df_1) = F_{0.025}(10, 9) = 3.96
+                    \end{align*}
+                    So a 95\% confidence interval for $\frac{\sigma_1^2}{\sigma_2^2}$ is
+                    \begin{equation*}
+                        \left[\frac{\left(\frac{s_1^2}{s_2^2}\right)}{F_{0.025}}(df_1,df_2), \frac{\left(\frac{s_1^2}{s_2^2}\right)}{F_{0.025}}(df_2,df_1)\right] = \left[\frac{\left(\frac{2.3^2}{5.8^2}\right)}{3.78}, \left(\frac{2.3^2}{5.8^2}\right)(3.96)\right] = (0.04, 0.62)
+                    \end{equation*}
+                    \begin{itemize}
+                        \item[-] Since one is not included in the interval we reject the hypothesis that $\sigma_1^2 = \sigma_2^2$
+                        \item \underline{Conclusion:} The data show evidence that the variance of the experimental lab rats is larger than that of the standard rats.
+                    \end{itemize}
+                \end{mdframed}
+\vspace{4.5cm}
+\line(1,0){\linewidth}
+\end{document}

@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}Normal Probability Distribution}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Continuous Random Variables}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Properties of Continuous Probability Distribution}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Normal Distribution}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Standard Normal Distribution}{4}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Solve Problems Using Statistical Table 3}{4}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Finding Probabilities for the General Normal Random Variable}{4}{subsubsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.5}Normal Approximation to the Binomial}{5}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Approximating the Binomial}{5}{subsubsection.1.5.1}%
+\contentsline {section}{\numberline {2}Sampling Distributions}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sampling}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Sampling Distributions for Statistics}{6}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Importance of Sampling Distributions for Statistics}{6}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Definition of Large}{7}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Sampling Distribution of the Sample Mean}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Finding Probabilities for the Sample Mean}{7}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Example 2}{8}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Sampling Distribution of the Sample Proportion}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Finding Probabilities for the Sample Proportion}{8}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {3}Large-Sample Estimation}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Interval Estimation}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Estimating Means and Proportions}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Confidence Intervals for Means and Proportions}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Estimating the Difference between Two Means}{12}{subsection.3.4}%
